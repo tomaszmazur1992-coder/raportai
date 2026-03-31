@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RaportAI — Strategiczny raport marketingowy dla Twojego biznesu</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --orange: #FF4D00;
+  --dark: #f8f7f4;
+  --card: #ffffff;
+  --border: #e8e8e8;
+  --muted: #666666;
+  --text: #1a1a1a;
+  --soft: #555555;
+}
+
+body {
+  background: var(--dark);
+  background-image: radial-gradient(circle at 1px 1px, rgba(0,0,0,0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-4px); }
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(245,244,240,0.75);
+  backdrop-filter: blur(24px) saturate(2);
+  -webkit-backdrop-filter: blur(24px) saturate(2);
+  border-bottom: 1px solid rgba(255,255,255,0.8);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  padding: 0 32px;
+  height: 54px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #1a1a1a; }
+.nav-logo span { color: var(--orange); }
+.nav-cta {
+  padding: 7px 16px;
+  background: var(--orange); color: #fff;
+  border: none; border-radius: 8px;
+  font-size: 12px; font-weight: 700; font-family: inherit;
+  cursor: pointer; text-decoration: none;
+  transition: opacity 0.15s, box-shadow 0.15s, transform 0.1s;
+  box-shadow: 0 4px 14px rgba(255,77,0,0.35);
+}
+.nav-cta:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(255,77,0,0.4); }
+
+/* HERO */
+.hero {
+  min-height: 92vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 80px 24px 60px;
+  position: relative;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,77,0,0.07) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 40% at 50% 110%, rgba(100,120,160,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 14px;
+  background: rgba(255,77,0,0.08);
+  border: 1px solid rgba(255,77,0,0.18);
+  border-radius: 100px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 32px;
+  animation: float 3s ease-in-out infinite;
+}
+.hero h1 {
+  font-size: clamp(30px, 5.5vw, 60px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+  color: #111111;
+  max-width: 720px;
+  margin-bottom: 22px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.06);
+}
+.hero h1 em { font-style: normal; color: var(--orange); }
+.hero-sub {
+  font-size: clamp(15px, 2vw, 17px);
+  color: #555555;
+  max-width: 460px;
+  line-height: 1.65;
+  margin-bottom: 40px;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 36px;
+  background: var(--orange); color: #fff;
+  border: none; border-radius: 12px;
+  font-size: 16px; font-weight: 700; font-family: inherit;
+  cursor: pointer; text-decoration: none;
+  transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s, filter 0.15s;
+  letter-spacing: -0.01em;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.20),
+    inset 0 -1px 0 rgba(0,0,0,0.10),
+    0 4px 14px rgba(255,77,0,0.35);
+  backdrop-filter: blur(4px);
+}
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.20),
+    inset 0 -1px 0 rgba(0,0,0,0.10),
+    0 8px 24px rgba(255,77,0,0.45);
+  filter: brightness(1.05);
+}
+.hero-cta:active { transform: scale(0.99); }
+.hero-note { margin-top: 14px; font-size: 12px; color: #888888; }
+
+/* SOCIAL PROOF */
+.social {
+  padding: 0 24px 80px;
+  max-width: 920px; margin: 0 auto;
+}
+.social-label {
+  text-align: center;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #999999; margin-bottom: 28px;
+}
+.reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.review {
+  background: #ffffff; border: 1px solid #f0f0f0;
+  border-radius: 14px; padding: 24px;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.04),
+    0 4px 12px rgba(0,0,0,0.06),
+    0 12px 32px rgba(0,0,0,0.06),
+    0 0 0 1px rgba(0,0,0,0.03);
+  transition: box-shadow 0.25s, transform 0.25s;
+  transform: perspective(1000px);
+  will-change: transform;
+}
+.review:hover {
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.04),
+    0 8px 24px rgba(0,0,0,0.10),
+    0 24px 48px rgba(0,0,0,0.08),
+    0 0 0 1px rgba(0,0,0,0.04);
+  transform: perspective(1000px) rotateX(1deg) rotateY(-1deg) translateY(-4px);
+}
+.stars { color: var(--orange); font-size: 11px; margin-bottom: 10px; letter-spacing: 2px; }
+.review-text { font-size: 13.5px; color: #555555; line-height: 1.6; margin-bottom: 14px; font-style: italic; }
+.review-author { font-size: 11px; font-weight: 600; color: #1a1a1a; text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* GRADIENT SEPARATOR */
+.features, .form-section, .pricing-section {
+  position: relative;
+}
+.features::before, .form-section::before, .pricing-section::before {
+  content: '';
+  position: absolute; top: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 50%, transparent 100%);
+}
+
+/* FEATURES */
+.features {
+  padding: 80px 24px;
+  max-width: 920px; margin: 0 auto;
+  border-top: none;
+}
+.section-label {
+  text-align: center;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 14px;
+}
+.section-title {
+  text-align: center;
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 700; letter-spacing: -0.03em; color: #1a1a1a;
+  margin-bottom: 48px; line-height: 1.2;
+}
+.features-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px; background: #f0f0f0; border-radius: 16px; overflow: hidden;
+}
+.feat {
+  background: #ffffff; padding: 28px;
+  transition: box-shadow 0.25s, transform 0.25s;
+  transform: perspective(1000px);
+  will-change: transform;
+}
+.feat:hover {
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.04),
+    0 8px 24px rgba(0,0,0,0.08),
+    0 0 0 1px rgba(0,0,0,0.03);
+  transform: perspective(1000px) rotateX(1deg) rotateY(-1deg) translateY(-4px);
+}
+.feat-icon { font-size: 22px; margin-bottom: 12px; }
+.feat-title { font-size: 14px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+.feat-desc { font-size: 13px; color: #666666; line-height: 1.55; }
+
+/* FORM SECTION */
+.form-section {
+  padding: 80px 24px 60px;
+  max-width: 640px; margin: 0 auto;
+  border-top: none;
+}
+.form-section .section-label,
+.form-section .section-title { text-align: left; }
+.form-section .section-title { margin-bottom: 36px; }
+
+.field { margin-bottom: 22px; }
+.flabel {
+  display: block;
+  font-size: 11px; font-weight: 600; color: #444444;
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 9px;
+}
+input[type="text"], select, textarea {
+  width: 100%;
+  background: #ffffff; border: 1px solid #e0e0e0;
+  border-radius: 10px; color: #1a1a1a;
+  font-size: 14px; font-family: inherit;
+  padding: 12px 15px; outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none; appearance: none;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.06), 0 1px 0 rgba(255,255,255,0.8);
+}
+input[type="text"]:focus, select:focus, textarea:focus {
+  border-color: var(--orange);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.04), 0 0 0 3px rgba(255,77,0,0.12), 0 1px 0 rgba(255,255,255,0.8);
+}
+input[type="text"]::placeholder, textarea::placeholder { color: #aaaaaa; }
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center;
+  padding-right: 38px; cursor: pointer;
+}
+select option { background: #ffffff; color: #1a1a1a; }
+.checks { display: flex; flex-direction: column; gap: 6px; }
+.ci {
+  display: flex; align-items: center; gap: 11px;
+  padding: 10px 14px;
+  background: #ffffff; border: 1px solid #e8e8e8;
+  border-radius: 8px; cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s; user-select: none;
+}
+.ci:hover { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(255,77,0,0.06); }
+.ci input[type="checkbox"] { width: 15px; height: 15px; accent-color: var(--orange); cursor: pointer; flex-shrink: 0; }
+.ci span { font-size: 13.5px; color: #444444; }
+textarea { resize: vertical; min-height: 88px; line-height: 1.55; }
+
+.form-divider { height: 1px; background: #f0f0f0; margin: 28px 0; }
+
+.urgency {
+  text-align: center;
+  font-size: 12px; color: var(--orange); font-weight: 600;
+  letter-spacing: 0.04em; margin-bottom: 14px;
+}
+.btn {
+  width: 100%; padding: 16px;
+  background: var(--orange); color: #fff;
+  border: none; border-radius: 12px;
+  font-size: 15px; font-weight: 700; font-family: inherit;
+  cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+  letter-spacing: -0.01em;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.20),
+    inset 0 -1px 0 rgba(0,0,0,0.10),
+    0 4px 14px rgba(255,77,0,0.35);
+  backdrop-filter: blur(4px);
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.20),
+    inset 0 -1px 0 rgba(0,0,0,0.10),
+    0 8px 24px rgba(255,77,0,0.45);
+  filter: brightness(1.05);
+}
+.btn:active { transform: scale(0.99); }
+.btn:disabled { opacity: 0.3; cursor: not-allowed; transform: none; box-shadow: none; filter: none; }
+
+.guarantee { text-align: center; font-size: 12px; color: #888888; margin-top: 12px; line-height: 1.5; }
+
+.loading {
+  display: none; flex-direction: column; align-items: center;
+  justify-content: center; gap: 18px; padding: 36px 0 12px;
+}
+.spinner {
+  width: 36px; height: 36px;
+  border: 2.5px solid #e8e8e8; border-top-color: var(--orange);
+  border-radius: 50%; animation: spin 0.9s linear infinite; flex-shrink: 0;
+}
+.loading-text { color: #888888; font-size: 13px; letter-spacing: 0.04em; }
+.loading-text::after { content: ''; animation: ldots 1.5s steps(4, end) infinite; }
+@keyframes ldots { 0%{content:''} 25%{content:'.'} 50%{content:'..'} 75%{content:'...'} 100%{content:''} }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.err {
+  display: none; background: #fff5f5; border: 1px solid #fecaca;
+  border-radius: 10px; padding: 13px 17px;
+  font-size: 13px; color: #cc4444; margin-top: 14px; line-height: 1.5;
+}
+
+/* REPORT DISPLAY (screen) */
+.report-outer {
+  display: none;
+  width: 100%; max-width: 640px;
+  margin: 0 auto 60px; padding: 0 24px;
+}
+.rtag {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 14px; padding-left: 2px;
+}
+.report-card {
+  background: #ffffff; border: 1px solid #f0f0f0;
+  border-radius: 18px; padding: 36px 40px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+#rc { font-size: 14.5px; line-height: 1.85; color: #222222; }
+#rc h1 { font-size: 19px; font-weight: 700; color: #111111; margin: 0 0 16px; letter-spacing: -0.02em; }
+#rc h2 { font-size: 17px; font-weight: 600; color: #1a1a1a; letter-spacing: -0.02em; margin: 30px 0 10px; }
+#rc h2:first-child { margin-top: 0; }
+#rc h3 { font-size: 14px; font-weight: 600; color: #444444; margin: 18px 0 6px; }
+#rc p { margin-bottom: 10px; }
+#rc ul, #rc ol { padding-left: 18px; margin: 8px 0 12px; }
+#rc li { margin-bottom: 5px; }
+#rc strong { color: #111111; font-weight: 600; }
+#rc em { color: #666666; font-style: italic; }
+#rc hr { border: none; border-top: 1px solid #e8e8e8; margin: 20px 0; }
+
+.print-btn {
+  display: block; width: 100%; margin-top: 18px; padding: 13px;
+  background: transparent; color: #666666;
+  border: 1px solid #e8e8e8; border-radius: 10px;
+  font-size: 13px; font-weight: 500; font-family: inherit;
+  cursor: pointer; transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.print-btn:hover { border-color: #cccccc; color: #333333; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+
+/* PRICING */
+.pricing-section {
+  padding: 40px 24px 80px;
+  max-width: 520px; margin: 0 auto;
+  border-top: none;
+}
+.pricing-box {
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
+  border-radius: 20px;
+  padding: 40px 44px;
+  text-align: center;
+  box-shadow:
+    0 0 0 1px rgba(255,77,0,0.08),
+    0 4px 16px rgba(0,0,0,0.06),
+    0 24px 64px rgba(0,0,0,0.10),
+    0 0 80px rgba(255,77,0,0.04);
+  position: relative; overflow: hidden;
+}
+.pricing-box::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #FF4D00, #ff7a40, #FF4D00);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+  border-radius: 20px 20px 0 0;
+}
+.pricing-title {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: #888888;
+  margin-bottom: 24px;
+}
+.pricing-prices {
+  display: flex; align-items: baseline; justify-content: center;
+  gap: 16px; margin-bottom: 8px;
+}
+.pricing-old {
+  font-size: 22px; font-weight: 500; color: #bbbbbb;
+  text-decoration: line-through;
+}
+.pricing-main {
+  font-size: 56px; font-weight: 800; color: var(--orange);
+  letter-spacing: -0.04em; line-height: 1;
+}
+.pricing-note {
+  font-size: 12px; color: #888888; margin-bottom: 28px;
+}
+.pricing-checks {
+  list-style: none; text-align: left;
+  margin: 0 0 24px; display: flex; flex-direction: column; gap: 10px;
+}
+.pricing-checks li {
+  font-size: 14px; color: #444444; line-height: 1.5;
+}
+.pricing-social {
+  font-size: 12px; font-weight: 600; color: var(--orange);
+  letter-spacing: 0.03em; margin-bottom: 24px;
+}
+.pricing-box .hero-cta { width: 100%; justify-content: center; }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid #e8e8e8; padding: 40px 24px; text-align: center;
+  background: #ffffff;
+}
+.footer-logo { font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #1a1a1a; margin-bottom: 12px; }
+.footer-logo span { color: #FF4D00; }
+.footer-text { font-size: 12px; color: #888888; line-height: 1.7; }
+.footer-text a { color: #888888; text-decoration: none; }
+.footer-text a:hover { color: #444444; }
+
+/* ============================================================
+   PRINT-ONLY ELEMENTS (ukryte na ekranie)
+   ============================================================ */
+#phdr, #pftr, #pcover { display: none; }
+
+/* ============================================================
+   PRINT STYLES
+   ============================================================ */
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+  /* Strony z marginesami; pierwsza strona (okładka) = full-bleed bez marginesów */
+  @page        { size: A4; margin: 14mm 14mm; }
+  @page :first { size: A4; margin: 0; }
+
+  /* Zeruj wszelkie marginesy/padding na body i html — żadnych pustych stron */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+  }
+
+  /* Ukryj wszystko oprócz sekcji z raportem */
+  body > *   { display: none !important; }
+  body > #ro { display: block !important; }
+
+  /* Kontener raportu — zero margin/padding, pełna szerokość */
+  #ro {
+    display: block !important;
+    max-width: none !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #fff !important;
+    /* Zapobiega ucinaniu treści */
+    height: auto !important;
+    overflow: visible !important;
+    max-height: none !important;
+  }
+
+  /* report-outer alias (na wypadek gdyby klasa miała ograniczenia) */
+  .report-outer {
+    height: auto !important;
+    overflow: visible !important;
+    max-height: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Karta raportu — bez ramki, bez zaokrągleń, bez ograniczeń wysokości */
+  .report-card {
+    background: #fff !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    max-height: none !important;
+  }
+
+  /* Treść raportu — nigdy nie ucinaj */
+  #rc {
+    height: auto !important;
+    overflow: visible !important;
+    max-height: none !important;
+  }
+
+  /* Elementy tylko-ekranowe — ukryte w druku */
+  .rtag     { display: none !important; }
+  #printBtn { display: none !important; }
+
+  /* ── KRYTYCZNE: KAŻDY kontener w łańcuchu #ro → .report-card → #rc ──
+     display:block zapewnia widoczność, reszta zapobiega ucięciu treści        */
+  #ro {
+    display: block !important;
+    height: auto !important; max-height: none !important;
+    overflow: visible !important; overflow-y: visible !important;
+    position: static !important;
+  }
+  .report-card {
+    display: block !important;
+    height: auto !important; max-height: none !important;
+    overflow: visible !important; overflow-y: visible !important;
+    position: static !important;
+  }
+  #rc {
+    display: block !important;
+    height: auto !important; max-height: none !important;
+    overflow: visible !important; overflow-y: visible !important;
+    position: static !important;
+  }
+  /* Każdy bezpośredni potomek #rc też nie może ciąć */
+  #rc > * {
+    overflow: visible !important;
+    max-height: none !important;
+  }
+  /* Aliasowe selektory z instrukcji — na wypadek gdyby ID się zmieniło */
+  #report-output, #report-content, .report-body, .result, .output {
+    height: auto !important; max-height: none !important;
+    overflow: visible !important; overflow-y: visible !important;
+  }
+
+  /* ── STRONA TYTUŁOWA (okładka) ── */
+  #pcover {
+    display: block !important;
+    width: 210mm;
+    height: 297mm;
+    background: #0a0a0a !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    page-break-after: always;
+    break-after: page;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    position: relative;
+    overflow: visible;
+    padding: 52mm 18mm 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+  }
+  #pcover .pco-logo {
+    font-size: 34pt; font-weight: 900; letter-spacing: .13em;
+    text-transform: uppercase; color: #ffffff !important;
+    line-height: 1; margin-bottom: 10mm;
+  }
+  #pcover .pco-logo span { color: #FF4D00 !important; }
+  #pcover .pco-decorline {
+    width: 48px; height: 3px;
+    background: #FF4D00 !important;
+    margin-bottom: 32mm;
+  }
+  #pcover .pco-tagline {
+    font-size: 10pt; font-weight: 500;
+    color: #444 !important;
+    letter-spacing: 0.06em;
+    margin-top: 14px;
+    line-height: 1.6;
+  }
+  #pcover .pco-label {
+    font-size: 9pt; font-weight: 600; letter-spacing: .18em;
+    text-transform: uppercase; color: #555 !important; margin-bottom: 10px;
+  }
+  #pcover .pco-title {
+    font-size: 26pt; font-weight: 800; color: #fff !important;
+    line-height: 1.2; margin-bottom: 18px; max-width: 88%;
+  }
+  #pcover .pco-date {
+    font-size: 10pt; color: #666 !important; line-height: 1.9;
+  }
+  #pcover .pco-bar {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: #FF4D00 !important;
+    padding: 14px 18mm;
+    font-size: 8pt; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: #fff !important;
+  }
+
+  /* ── NAGŁÓWEK WYDRUKU (strona 2+) ── */
+  #phdr {
+    display: block !important;
+    margin-bottom: 18pt;
+    padding-bottom: 10pt;
+    border-bottom: 2.5pt solid #FF4D00 !important;
+    font-family: Arial, sans-serif;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  #phdr .ph-logo {
+    font-size: 20pt; font-weight: 900; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #FF4D00 !important;
+    line-height: 1;
+  }
+  #phdr .ph-typ {
+    font-size: 11pt; font-weight: 700; color: #111 !important;
+    margin-top: 5pt;
+  }
+  #phdr .ph-date {
+    font-size: 8pt; color: #888 !important; margin-top: 2pt;
+  }
+
+  /* ── STOPKA WYDRUKU ── */
+  #pftr {
+    display: block !important;
+    margin-top: 20pt;
+    padding-top: 8pt;
+    border-top: 0.5pt solid #ddd !important;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 8pt;
+    color: #aaa !important;
+  }
+
+  /* ── TREŚĆ RAPORTU ── */
+  #rc {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 10pt;
+    color: #111 !important;
+    line-height: 1.72;
+    height: auto !important;
+    overflow: visible !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #rc h1 { display: none !important; }
+
+  #rc h2 {
+    font-family: Arial, sans-serif !important;
+    font-size: 13pt; font-weight: 800; color: #0a0a0a !important;
+    margin: 20pt 0 7pt;
+    padding-bottom: 5pt;
+    border-bottom: 1.5pt solid #222 !important;
+    page-break-after: avoid;
+  }
+
+  /* Pierwszy h2 — zero margin-top żeby nie było pustej przestrzeni */
+  #rc h2:first-child,
+  #rc > *:first-child { margin-top: 0 !important; }
+
+  #rc h3 {
+    font-family: Arial, sans-serif !important;
+    font-size: 10.5pt; font-weight: 700; color: #333 !important;
+    margin: 10pt 0 4pt;
+    page-break-after: avoid;
+  }
+
+  #rc p {
+    font-family: Arial, sans-serif !important;
+    font-size: 10pt; line-height: 1.72; color: #222 !important;
+    margin-bottom: 5pt;
+  }
+
+  #rc ul, #rc ol {
+    font-family: Arial, sans-serif !important;
+    padding-left: 16pt;
+    margin: 3pt 0 7pt;
+  }
+  #rc li {
+    page-break-inside: avoid;
+  }
+
+  #rc li {
+    font-family: Arial, sans-serif !important;
+    font-size: 10pt; line-height: 1.65; color: #222 !important;
+    margin-bottom: 3pt;
+  }
+
+  #rc hr     { border: none !important; border-top: 0.5pt solid #ddd !important; margin: 10pt 0; }
+  #rc strong { font-weight: 700; color: #0a0a0a !important; }
+  #rc em     { color: #555 !important; font-style: italic; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">Raport<span>AI</span></div>
+  <a href="https://bit.ly/raportai-pl" class="nav-cta">Zamów raport — 149 zł</a>
+</nav>
+<!-- FORM SECTION -->
+<section class="form-section" id="formularz">
+  <div class="section-label">Twój raport</div>
+  <div class="section-title">Wypełnij brief —<br>AI przygotuje plan dla Ciebie</div>
+
+  <form id="form">
+    <div class="field">
+      <label class="flabel">1 — Typ firmy / branża</label>
+      <input type="text" id="typ" placeholder="np. sklep z odzieżą, fotografia, usługi budowlane…" required>
+    </div>
+
+    <div class="field">
+      <label class="flabel">2 — Staż firmy</label>
+      <select id="staz" required>
+        <option value="" disabled selected>Wybierz…</option>
+        <option value="dopiero zaczynam">Dopiero zaczynam</option>
+        <option value="mniej niż rok">Mniej niż rok</option>
+        <option value="1–3 lata">1–3 lata</option>
+        <option value="ponad 3 lata">Ponad 3 lata</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label class="flabel">3 — Gdzie sprzedaję</label>
+      <div class="checks" id="sprzedaz">
+        <label class="ci"><input type="checkbox" value="Allegro"><span>Allegro</span></label>
+        <label class="ci"><input type="checkbox" value="Własny sklep internetowy"><span>Własny sklep internetowy</span></label>
+        <label class="ci"><input type="checkbox" value="Instagram"><span>Instagram</span></label>
+        <label class="ci"><input type="checkbox" value="TikTok"><span>TikTok</span></label>
+        <label class="ci"><input type="checkbox" value="Stacjonarnie"><span>Stacjonarnie</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="flabel">4 — Kim są moi klienci</label>
+      <div class="checks" id="klienci">
+        <label class="ci"><input type="checkbox" value="Kobiety 18–35"><span>Kobiety 18–35</span></label>
+        <label class="ci"><input type="checkbox" value="Mężczyźni 18–35"><span>Mężczyźni 18–35</span></label>
+        <label class="ci"><input type="checkbox" value="Osoby 35–55"><span>Osoby 35–55</span></label>
+        <label class="ci"><input type="checkbox" value="Firmy B2B"><span>Firmy (B2B)</span></label>
+        <label class="ci"><input type="checkbox" value="Rodzice i rodziny"><span>Rodzice / rodziny</span></label>
+        <label class="ci"><input type="checkbox" value="Seniorzy 55+"><span>Seniorzy 55+</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="flabel">5 — Budżet miesięczny na marketing</label>
+      <select id="budzet" required>
+        <option value="" disabled selected>Wybierz…</option>
+        <option value="do 500 zł">Do 500 zł</option>
+        <option value="500–2000 zł">500–2000 zł</option>
+        <option value="2000–5000 zł">2000–5000 zł</option>
+        <option value="ponad 5000 zł">Ponad 5000 zł</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label class="flabel">6 — Największy problem</label>
+      <div class="checks" id="problem">
+        <label class="ci"><input type="checkbox" value="Za mało klientów"><span>Za mało klientów</span></label>
+        <label class="ci"><input type="checkbox" value="Niska konwersja (odwiedziny bez zakupów)"><span>Niska konwersja (odwiedziny bez zakupów)</span></label>
+        <label class="ci"><input type="checkbox" value="Brak czasu na marketing"><span>Brak czasu na marketing</span></label>
+        <label class="ci"><input type="checkbox" value="Nie wiem co publikować w social mediach"><span>Nie wiem co publikować w social mediach</span></label>
+        <label class="ci"><input type="checkbox" value="Wysoka konkurencja, trudno się wyróżnić"><span>Wysoka konkurencja, trudno się wyróżnić</span></label>
+        <label class="ci"><input type="checkbox" value="Klienci nie wracają"><span>Klienci nie wracają</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="flabel">7 — Cel na najbliższe 3 miesiące</label>
+      <textarea id="cel" placeholder="np. Chcę podwoić sprzedaż, zbudować markę na Instagramie, pozyskać stałych klientów…"></textarea>
+    </div>
+
+    <div class="field">
+      <label class="flabel">8 — Obecny miesięczny przychód</label>
+      <select id="przychod">
+        <option value="" disabled selected>Wybierz…</option>
+        <option value="Dopiero zaczynam / brak przychodu">Dopiero zaczynam / brak przychodu</option>
+        <option value="do 5000 zł">Do 5000 zł</option>
+        <option value="5000–20 000 zł">5000–20 000 zł</option>
+        <option value="ponad 20 000 zł">Ponad 20 000 zł</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label class="flabel">9 — Liczba pracowników</label>
+      <select id="pracownicy">
+        <option value="" disabled selected>Wybierz…</option>
+        <option value="Tylko ja">Tylko ja</option>
+        <option value="2–5 osób">2–5 osób</option>
+        <option value="Ponad 5 osób">Ponad 5 osób</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label class="flabel">10 — Twoja największa przewaga nad konkurencją <span style="color:#2a2a2a;font-weight:400;text-transform:none;letter-spacing:0">(opcjonalnie)</span></label>
+      <textarea id="przewaga" placeholder="np. Szybsza realizacja, niższe ceny, lepsza jakość, unikalna usługa…"></textarea>
+    </div>
+
+    <div class="field">
+      <label class="flabel">11 — Co próbowałeś robić i nie zadziałało? <span style="color:#2a2a2a;font-weight:400;text-transform:none;letter-spacing:0">(opcjonalnie)</span></label>
+      <textarea id="niedziala" placeholder="np. Reklamy na Facebooku, obniżanie cen, więcej postów na Instagramie…"></textarea>
+    </div>
+
+    <div class="field">
+      <label class="flabel">12 — Aktywne media społecznościowe</label>
+      <div class="checks" id="social">
+        <label class="ci"><input type="checkbox" value="Facebook"><span>Facebook</span></label>
+        <label class="ci"><input type="checkbox" value="Instagram"><span>Instagram</span></label>
+        <label class="ci"><input type="checkbox" value="TikTok"><span>TikTok</span></label>
+        <label class="ci"><input type="checkbox" value="YouTube"><span>YouTube</span></label>
+        <label class="ci"><input type="checkbox" value="LinkedIn"><span>LinkedIn</span></label>
+        <label class="ci"><input type="checkbox" value="Żaden"><span>Żaden</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="flabel">13 — Link do strony lub profilu <span style="color:#2a2a2a;font-weight:400;text-transform:none;letter-spacing:0">(opcjonalnie)</span></label>
+      <input type="text" id="link" placeholder="np. www.twojafirma.pl lub instagram.com/twojastrona">
+    </div>
+
+    <div class="field">
+      <label class="flabel">14 — Cel biznesowy na 6 miesięcy <span style="color:#2a2a2a;font-weight:400;text-transform:none;letter-spacing:0">(opcjonalnie)</span></label>
+      <textarea id="cel6m" placeholder="np. Osiągnąć 20 000 zł miesięcznie, zatrudnić pracownika, wejść na nowy rynek…"></textarea>
+    </div>
+
+    <div class="form-divider"></div>
+    <div class="urgency">⚡ Raport gotowy w 60 sekund — bez czekania</div>
+    <button type="submit" class="btn" id="btn">Generuj raport</button>
+    <div class="guarantee">🔒 Jeśli raport Cię nie zadowoli — zwracamy pieniądze</div>
+
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <span class="loading-text">Szukam aktualnych trendów i piszę Twój raport</span>
+    </div>
+    <div class="err" id="err"></div>
+  </form>
+</section>
+
+<!-- REPORT DISPLAY (screen only) -->
+<div class="report-outer" id="ro">
+
+  <!-- ░░ STRONA TYTUŁOWA — widoczna tylko w druku ░░ -->
+  <div id="pcover">
+    <div class="pco-logo">Raport<span>AI</span></div>
+    <div class="pco-decorline"></div>
+    <div class="pco-label">Raport Strategiczny</div>
+    <div class="pco-title" id="pcover-title">Raport Marketingowy</div>
+    <div class="pco-tagline">Przygotowany indywidualnie · Poufny dokument strategiczny</div>
+    <div class="pco-date" id="pcover-date">2026<br>Raport Strategiczny 2026</div>
+    <div class="pco-bar">Dokument poufny &nbsp;&middot;&nbsp; RaportAI.pl</div>
+  </div>
+
+  <!-- ░░ NAGŁÓWEK STRONY 2+ — widoczny tylko w druku ░░ -->
+  <div id="phdr">
+    <div class="ph-logo">RaportAI</div>
+    <div class="ph-typ" id="phdr-typ"></div>
+    <div class="ph-date" id="phdr-date"></div>
+  </div>
+
+  <div class="rtag">Twój raport jest gotowy</div>
+  <div class="report-card">
+    <div id="rc"></div>
+  </div>
+
+  <!-- Stopka widoczna tylko w druku -->
+  <div id="pftr">RaportAI.pl &nbsp;&middot;&nbsp; Raport Strategiczny 2026</div>
+
+  <button class="print-btn" id="printBtn">↓ Pobierz PDF</button>
+  <p style="font-size:11px;color:#888888;text-align:center;margin-top:8px;line-height:1.5;">
+    W oknie druku wybierz drukarkę: <strong style="color:#444444">Microsoft Print to PDF</strong> (nie „Zapisz jako PDF")<br>
+    Oraz odznacz <strong style="color:#444444">„Nagłówki i stopki"</strong> żeby usunąć adres URL ze stron
+  </p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Raport<span>AI</span></div>
+  <div class="footer-text">
+    <a href="/cdn-cgi/l/email-protection#2d464243594c46596d5f4c5d425f594c44035d41"><span class="__cf_email__" data-cfemail="4d262223392c26390d3f2c3d223f392c24633d21">[email&#160;protected]</span></a> &nbsp;·&nbsp; Działalność nierejestrowana<br>
+    &copy; 2026 RaportAI — Spersonalizowane raporty marketingowe dla polskich firm
+  </div>
+</footer>
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// UWAGA: Ten klucz jest widoczny w źródle strony. Strona musi być dostępna tylko po zapłacie przez naffy.io — nigdy nie udostępniaj tego pliku publicznie.
+const KEY = '';
+
+function checked(id) {
+  return [...document.querySelectorAll('#' + id + ' input:checked')].map(e => e.value);
+}
+
+function buildPrompt(d) {
+  const optLink     = d.link      ? `- Strona / profil do analizy: ${d.link}` : '';
+  const optNie      = d.niedziala ? `- Co już próbowano i nie zadziałało: ${d.niedziala}` : '';
+  const optPrzew    = d.przewaga  ? `- Największa przewaga nad konkurencją: ${d.przewaga}` : '';
+  const optCel6m    = d.cel6m     ? `- Cel biznesowy na 6 miesięcy: ${d.cel6m}` : '';
+
+  const secNieDziala = d.niedziala ? `
+## DLACZEGO TO CO PRÓBOWAŁEŚ NIE ZADZIAŁAŁO — I CO ZROBIĆ ZAMIAST TEGO
+Klient próbował: "${d.niedziala}". Wyjaśnij KONKRETNIE (nie ogólnie) dlaczego to nie przyniosło efektu w kontekście jego branży "${d.typ}", etapu "${d.staz}" i kanałów sprzedaży. Następnie powiedz dokładnie co powinien zrobić zamiast tego — minimum 3 konkretne alternatywy z krokami wdrożenia.
+` : '';
+
+  const secLink = d.link ? `
+## ANALIZA TWOJEJ OBECNOŚCI ONLINE
+Klient podał: ${d.link}. Na podstawie adresu, branży i kontekstu oceń co prawdopodobnie robi dobrze, a co wymaga poprawy. Daj 3-5 bardzo konkretnych wskazówek jak ulepszyć tę obecność — co zmienić w bio, opisach, ofercie, zdjęciach, CTA.
+` : '';
+
+  return `Jesteś najlepszym konsultantem marketingowym dla polskich małych i średnich firm. Twój raport ma być tak dobry, że klient robi zdjęcie ekranu i wysyła znajomym ze słowami "patrz co mi to wygenerowało". Pisz bezpośrednio do tej konkretnej osoby — używaj "Ty", "Twoja firma", "W Twoim przypadku". ZERO ogólników. Minimum 1400 słów merytorycznej treści. NIE używaj emoji ani emotikon w żadnym miejscu raportu — to dokument biznesowy. Wszystkie nagłówki sekcji (##) pisz WIELKIMI LITERAMI z pełnymi polskimi znakami diakrytycznymi — np. ## TWOJA SYTUACJA — CO WIDZIMY, ## 3 NAJWIĘKSZE SZANSE — TERAZ. Nigdy nie używaj Capitalizacji Każdego Słowa w nagłówkach.
+
+KROK 1 — ZANIM ZACZNIESZ PISAĆ: Użyj narzędzia web_search żeby wyszukać "trendy ${d.typ} Polska ${new Date().getFullYear()}" oraz "${d.typ} marketing Polska najnowsze". Przeczytaj wyniki i uwzględnij 2-3 AKTUALNE trendy z ostatnich miesięcy w sekcji ## TWOJA SYTUACJA i ## 3 NAJWIĘKSZE SZANSE. Klient musi poczuć że raport jest świeży i aktualny — nie z zeszłego roku.
+
+DANE FIRMY:
+- Branża / typ działalności: ${d.typ}
+- Staż na rynku: ${d.staz}
+- Miesięczny przychód: ${d.przychod || 'nie podano'}
+- Liczba pracowników: ${d.pracownicy || 'nie podano'}
+- Kanały sprzedaży: ${d.sprzedaz.join(', ') || 'nie podano'}
+- Docelowi klienci: ${d.klienci.join(', ') || 'nie podano'}
+- Budżet marketingowy miesięcznie: ${d.budzet}
+- Aktywne social media: ${d.social.join(', ') || 'nie podano'}
+- Główne problemy: ${d.problem.join(', ') || 'nie podano'}
+- Cel na 3 miesiące: ${d.cel || 'nie podano'}
+${optLink}
+${optNie}
+${optPrzew}
+${optCel6m}
+
+Napisz raport używając TYLKO sekcji oznaczonych ##:
+
+## TWOJA SYTUACJA — CO WIDZIMY
+WAŻNE: Pierwsze 3 zdania muszą być tak precyzyjne i trafne, że klient pomyśli "skąd oni to wiedzą?!" — jakby ktoś obserwował jego firmę od środka. Nie zaczynaj od ogólników. Zacznij od JEDNEGO bardzo konkretnego, zaskakującego spostrzeżenia specyficznego dla branży "${d.typ}" na etapie "${d.staz}" z przychodem "${d.przychod || 'na tym poziomie'}". Na przykład nazwij konkretny mechanizm który blokuje wzrost w tej branży na tym etapie — coś czego właściciel czuje ale nie potrafi nazwać. Następnie rozwiń diagnozę — połącz dane (kanały, klientów, budżet, problemy) i pokaż jak się ze sobą łączą. Dodaj 1-2 twarde dane branżowe lub statystyki specyficzne dla "${d.typ}" w Polsce które uwiarygodnią analizę (np. średni koszt pozyskania klienta w tej branży, typowy wskaźnik powrotów, średni koszyk). Zakończ sekcję jednym zdaniem które jasno mówi: jeśli naprawisz TEN jeden element, wszystko inne ruszy.
+${secNieDziala}
+${secLink}
+## 3 NAJWIĘKSZE SZANSE — TERAZ
+Trzy konkretne szanse specyficzne dla branży "${d.typ}" i etapu "${d.staz}". Dla każdej: co to dokładnie jest, dlaczego właśnie teraz, jak wdrożyć w pierwszych 7 dniach. Żadna szansa nie może być ogólna — każda musi być możliwa tylko dla tej konkretnej firmy w tej branży. Dla każdej szansy dodaj osobny akapit "Jak zmierzyć efekt po 30 dniach:" z konkretną liczbą lub wskaźnikiem.
+
+## PLAN NA 90 DNI — OD ${d.przychod || 'OBECNEGO PRZYCHODU'} DO CELU
+KRYTYCZNE: Zastąp nagłówek tej sekcji dynamicznym tytułem z KONKRETNYMI LICZBAMI na podstawie danych klienta. Przykład poprawny: "## PLAN NA 90 DNI — OD 8 000 ZŁ DO 25 000 ZŁ MIESIĘCZNIE". NIE pisz "od obecnych przychodów" ani "od obecnego poziomu" — użyj konkretnej kwoty z danych lub własnego oszacowania.
+
+**Miesiąc 1 — Fundamenty**
+Minimum 5 konkretnych zadań. Dla każdego: co zrobić + jak to wykonać krok po kroku. Dla każdego zadania podaj jeden konkretny wskaźnik sukcesu — np. ile osób, ile złotych, ile wejść.
+
+**Miesiąc 2 — Wzrost**
+Minimum 5 zadań bazujących na tym co zrobiono w miesiącu 1. Konkretne, mierzalne. Dla każdego zadania podaj jeden konkretny wskaźnik sukcesu.
+
+**Miesiąc 3 — Skalowanie**
+Minimum 5 zadań. Co skalować, jak i dlaczego właśnie to. Dla każdego zadania podaj jeden konkretny wskaźnik sukcesu.
+
+## PRIORYTETY KANAŁÓW I KOMUNIKACJA Z KLIENTAMI
+Które kanały sprzedaży i social media rozwijać najpierw przy budżecie ${d.budzet} — i dlaczego akurat te. Konkretna strategia komunikacji z grupą "${d.klienci.join(', ') || 'klientami'}" — jaki język, jakie treści, jak często, w jakich godzinach, jak reagować na komentarze. Podaj 3-5 konkretnych przykładów treści (np. przykładowy post, temat wiadomości SMS, temat maila) które działają w tej branży.
+
+## PODZIAŁ BUDŻETU ${d.budzet} MIESIĘCZNIE
+Konkretna propozycja: na co ile przeznaczać. Każda pozycja z kwotą i uzasadnieniem dlaczego właśnie tyle. Na końcu podsumuj: "Przy tym podziale budżetu Twój koszt pozyskania jednego nowego klienta wynosi szacunkowo [kwota] zł."
+
+## 3 RZECZY KTÓRE MOŻESZ ZROBIĆ JUTRO
+Trzy działania możliwe do wdrożenia JUTRO — bez dodatkowego budżetu, bez zatrudniania, bez czekania. OBOWIĄZKOWO użyj dla każdego działania DOKŁADNIE tej struktury — nie zmieniaj kolejności ani etykiet:
+
+**Działanie 1: [nazwa działania]**
+Co zrobić: [jedno konkretne zdanie]
+Jak krok po kroku: [3-4 punkty z numerami]
+Efekt który zobaczysz w ciągu 7 dni: [KONKRETNA LICZBA — np. "5 nowych zapytań", "+300 zł przychodu", "3 rezerwacje"]
+
+**Działanie 2: [nazwa działania]**
+Co zrobić: [jedno konkretne zdanie]
+Jak krok po kroku: [3-4 punkty z numerami]
+Efekt który zobaczysz w ciągu 7 dni: [KONKRETNA LICZBA]
+
+**Działanie 3: [nazwa działania]**
+Co zrobić: [jedno konkretne zdanie]
+Jak krok po kroku: [3-4 punkty z numerami]
+Efekt który zobaczysz w ciągu 7 dni: [KONKRETNA LICZBA]
+
+## TWÓJ POTENCJAŁ — GDZIE MOŻESZ BYĆ ZA 6 MIESIĘCY
+Pokaż matematykę wzrostu w 3 dźwigniach (każda z kwotą w zł). Format: "Dźwignia 1: [opis] = +[kwota] zł/miesiąc". Podaj łączną kwotę docelową. Maksymalnie 200 słów — zostaw miejsce na sekcję poniżej.
+
+## TWÓJ ZWROT Z TEGO RAPORTU
+KRYTYCZNE: Ta sekcja MUSI pojawić się w raporcie jako ostatnia przed kreską. Wstaw DOKŁADNIE to zdanie (wypełnij tylko X — liczba od 3 do 14 dni):
+"Twój raport kosztował 149 zł. Jeśli wdrożysz choćby jedną z powyższych strategii, zwróci się w ciągu [X] dni — szacując konserwatywnie."
+
+---
+
+Zakończ raport DOKŁADNIE tym zdaniem (jako osobny akapit):
+Podziel się tym raportem ze znajomym który prowadzi firmę — może mu pomóc tak samo jak Tobie.`;
+}
+
+function renderMd(t) {
+  // Inline formatter — stosowany do każdego fragmentu tekstu osobno
+  // (bold, italic, bold+italic) — zapobiega edge-casom gdy global regex
+  // nie trafia w tekst po oczyszczeniu prefixów list
+  const inline = s =>
+    s.replace(/\*\*\*([^*]+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+     .replace(/\*\*([^*\n]+?)\*\*/g,   '<strong>$1</strong>')
+     .replace(/\*([^*\n]+?)\*/g,       '<em>$1</em>');
+
+  t = t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+  // Nagłówki — inline stosowany do treści nagłówka
+  t = t.replace(/^# (.+)$/gm,   (_, c) => '<h1>'  + inline(c) + '</h1>');
+  t = t.replace(/^## (.+)$/gm,  (_, c) => '<h2>'  + inline(c) + '</h2>');
+  t = t.replace(/^### (.+)$/gm, (_, c) => '<h3>'  + inline(c) + '</h3>');
+  t = t.replace(/^---+$/gm, '<hr>');
+
+  // Global pre-pass — catches bold/italic that span edge cases inline() might miss
+  t = t.replace(/\*\*\*([^*\n]+?)\*\*\*/g, '<strong><em>$1</em></strong>');
+  t = t.replace(/\*\*([^*\n]+?)\*\*/g, '<strong>$1</strong>');
+  t = t.replace(/\*([^*\n]+?)\*/g, '<em>$1</em>');
+
+  const lines = t.split('\n');
+  const out = [];
+  let inUl = false, inOl = false, pBuf = [];
+
+  const flushP = () => {
+    const text = pBuf.join(' ').trim();
+    if (text) out.push('<p>' + text + '</p>');
+    pBuf = [];
+  };
+  const closeLists = () => {
+    if (inUl) { out.push('</ul>'); inUl = false; }
+    if (inOl) { out.push('</ol>'); inOl = false; }
+  };
+
+  for (const line of lines) {
+    const tr = line.trim();
+    if (!tr) { closeLists(); flushP(); continue; }
+    if (/^<h[123]>/.test(tr) || tr === '<hr>') { closeLists(); flushP(); out.push(tr); continue; }
+    if (/^[-•]\s/.test(tr)) {
+      flushP();
+      if (inOl) { out.push('</ol>'); inOl = false; }
+      if (!inUl) { out.push('<ul>'); inUl = true; }
+      // inline() stosowany PO usunięciu prefixu "- "
+      out.push('<li>' + inline(tr.replace(/^[-•]\s/, '')) + '</li>');
+      continue;
+    }
+    if (/^\d+\.\s/.test(tr)) {
+      flushP();
+      if (inUl) { out.push('</ul>'); inUl = false; }
+      if (!inOl) { out.push('<ol>'); inOl = true; }
+      // inline() stosowany PO usunięciu prefixu "1. "
+      out.push('<li>' + inline(tr.replace(/^\d+\.\s/, '')) + '</li>');
+      continue;
+    }
+    closeLists();
+    // inline() stosowany do każdej linii paragrafu
+    pBuf.push(inline(tr));
+  }
+  closeLists(); flushP();
+  return out.join('\n');
+}
+
+document.getElementById('printBtn').addEventListener('click', () => {
+  const rc = document.getElementById('rc');
+  if (!rc || rc.innerHTML.trim().length < 100) {
+    alert('Najpierw wygeneruj raport');
+    return;
+  }
+
+  // ── Krok 1a: Konkretne selektory z instrukcji (najwyższy priorytet) ──
+  [
+    '#rc', '#ro', '.report-card', '.report-outer',
+    '#report-output', '#report-content', '.report-body', '.result', '.output'
+  ].forEach(function(sel) {
+    document.querySelectorAll(sel).forEach(function(el) {
+      el.style.height    = 'auto';
+      el.style.maxHeight = 'none';
+      el.style.overflow  = 'visible';
+      el.style.overflowY = 'visible';
+    });
+  });
+
+  // ── Krok 1b: Ogólny reset na WSZYSTKICH elementach + zapis do przywrócenia ──
+  var _saved = [];
+  document.querySelectorAll('*').forEach(function(el) {
+    var s = el.style;
+    _saved.push({
+      el:        el,
+      maxHeight: s.maxHeight,
+      height:    s.height,
+      overflow:  s.overflow,
+      overflowY: s.overflowY,
+    });
+    s.maxHeight = 'none';
+    s.overflow  = 'visible';
+    s.overflowY = 'visible';
+    if (s.height && s.height !== 'auto') s.height = 'auto';
+  });
+
+  // ── Krok 2: Odczekaj 200ms żeby przeglądarka przeliczała layout po zmianie stylów ──
+  setTimeout(function() {
+    // Pętla celowana w #rc i WSZYSTKICH jego potomków — tuż przed window.print()
+    // To jest kontener (id="rc") który zawiera całą wygenerowaną treść raportu
+    var rcEl = document.getElementById('rc');
+    if (rcEl) {
+      // Reset samego #rc
+      rcEl.style.height    = 'auto';
+      rcEl.style.maxHeight = 'none';
+      rcEl.style.overflow  = 'visible';
+      rcEl.style.overflowY = 'visible';
+      rcEl.style.position  = 'static';
+      // Reset każdego elementu wewnątrz #rc (h2, p, ul, li, strong, em...)
+      rcEl.querySelectorAll('*').forEach(function(child) {
+        child.style.maxHeight = 'none';
+        child.style.overflow  = 'visible';
+        child.style.overflowY = 'visible';
+        if (child.style.height && child.style.height !== 'auto') {
+          child.style.height = 'auto';
+        }
+      });
+    }
+    // Reset łańcucha rodziców: .report-card → #ro
+    ['.report-card', '#ro'].forEach(function(sel) {
+      var el = document.querySelector(sel);
+      if (el) {
+        el.style.height    = 'auto';
+        el.style.maxHeight = 'none';
+        el.style.overflow  = 'visible';
+        el.style.overflowY = 'visible';
+        el.style.position  = 'static';
+      }
+    });
+
+    var _typ = (document.getElementById('pcover-title') || {}).textContent || '';
+    document.title = _typ ? 'RaportAI — ' + _typ : 'RaportAI — Raport';
+    document.body.offsetHeight; // force reflow
+    window.print();
+
+    // ── Krok 3: Przywróć oryginalne inline style po zamknięciu okna druku ──
+    _saved.forEach(function(item) {
+      item.el.style.maxHeight  = item.maxHeight;
+      item.el.style.height     = item.height;
+      item.el.style.overflow   = item.overflow;
+      item.el.style.overflowY  = item.overflowY;
+    });
+  }, 50);
+});
+
+document.getElementById('form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const d = {
+    typ:        document.getElementById('typ').value.trim(),
+    staz:       document.getElementById('staz').value,
+    przychod:   document.getElementById('przychod').value,
+    pracownicy: document.getElementById('pracownicy').value,
+    sprzedaz:   checked('sprzedaz'),
+    klienci:    checked('klienci'),
+    budzet:     document.getElementById('budzet').value,
+    social:     checked('social'),
+    problem:    checked('problem'),
+    cel:        document.getElementById('cel').value.trim(),
+    przewaga:   document.getElementById('przewaga').value.trim(),
+    niedziala:  document.getElementById('niedziala').value.trim(),
+    link:       document.getElementById('link').value.trim(),
+    cel6m:      document.getElementById('cel6m').value.trim(),
+  };
+
+  const btn     = document.getElementById('btn');
+  const loading = document.getElementById('loading');
+  const err     = document.getElementById('err');
+  const ro      = document.getElementById('ro');
+  const rc      = document.getElementById('rc');
+
+  btn.disabled = true;
+  loading.style.display = 'flex';
+  err.style.display = 'none';
+  ro.style.display = 'none';
+  rc.textContent = '';
+
+  try {
+    const res = await fetch('https://raportai-proxy.kontakt-raportai.workers.dev', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 14000,
+        stream: true,
+        tools: [{ type: 'web_search_20250305', name: 'web_search' }],
+        messages: [{ role: 'user', content: buildPrompt(d) }],
+      }),
+    });
+
+    if (!res.ok) {
+      const b = await res.json().catch(() => ({}));
+      throw new Error(b?.error?.message || 'Błąd ' + res.status);
+    }
+
+    const reader = res.body.getReader();
+    const dec = new TextDecoder();
+    let buf = '', raw = '';
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buf += dec.decode(value, { stream: true });
+      const lines = buf.split('\n');
+      buf = lines.pop();
+      for (const line of lines) {
+        if (!line.startsWith('data: ')) continue;
+        const s = line.slice(6).trim();
+        if (s === '[DONE]') continue;
+        try {
+          const p = JSON.parse(s);
+          // Obsługa streamingu — tylko jeden branch może pasować
+          if (p.type === 'content_block_delta' && p.delta?.type === 'text_delta') raw += p.delta.text;
+          else if (p.type === 'content_block_delta' && p.delta?.text) raw += p.delta.text;
+        } catch {}
+      }
+    }
+
+    // ── KOREKTA JĘZYKOWA — automatyczna po wygenerowaniu ──
+    loading.querySelector('.loading-text').textContent = 'Sprawdzam pisownię';
+    loading.style.display = 'flex';
+    try {
+      const corrRes = await fetch('https://raportai-proxy.kontakt-raportai.workers.dev', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'anthropic-version': '2023-06-01',
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 10000,
+          messages: [{
+            role: 'user',
+            content: `Jesteś korektorem języka polskiego. Popraw WSZYSTKIE błędy ortograficzne, literówki i brakujące polskie znaki diakrytyczne (ą, ę, ś, ź, ż, ó, ł, ć, ń) w poniższym tekście. NIE zmieniaj treści, struktury, nagłówków ani formatowania markdown — poprawiaj TYLKO pisownię. Zwróć WYŁĄCZNIE poprawiony tekst, bez żadnego komentarza na początku ani na końcu.\n\n${raw}`
+          }]
+        }),
+      });
+      if (corrRes.ok) {
+        const corrData = await corrRes.json();
+        if (corrData.content?.[0]?.text) raw = corrData.content[0].text;
+      }
+    } catch (e) { /* jeśli korekta nie zadziała — pokaż oryginał */ }
+
+    loading.style.display = 'none';
+    rc.innerHTML = renderMd(raw);
+
+    // Uzupełnij nagłówek wydruku
+    const months = ['Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec',
+                    'Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień'];
+    var _mNow  = months[new Date().getMonth()] + '\u00a0' + new Date().getFullYear();
+    var _label = 'Raport Strategiczny 2026\u00a0\u00b7\u00a0' + _mNow;
+    // Nagłówek strony 2+
+    document.getElementById('phdr-typ').textContent  = d.typ || 'Raport Marketingowy';
+    document.getElementById('phdr-date').textContent = _label;
+    // Strona tytułowa
+    document.getElementById('pcover-title').textContent = d.typ || 'Raport Marketingowy';
+    document.getElementById('pcover-date').textContent  = _mNow + '\n' + 'Raport Strategiczny 2026';
+
+    ro.style.display = 'block';
+    ro.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  } catch (er) {
+    loading.style.display = 'none';
+    err.style.display = 'block';
+    err.textContent = 'Błąd: ' + er.message;
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
