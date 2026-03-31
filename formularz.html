@@ -1196,10 +1196,9 @@ document.getElementById('form').addEventListener('submit', async (e) => {
         if (s === '[DONE]') continue;
         try {
           const p = JSON.parse(s);
-          // Obsługa zwykłego tekstu
+          // Obsługa streamingu — tylko jeden branch może pasować
           if (p.type === 'content_block_delta' && p.delta?.type === 'text_delta') raw += p.delta.text;
-          // Kompatybilność wsteczna
-          if (p.type === 'content_block_delta' && p.delta?.text) raw += p.delta.text;
+          else if (p.type === 'content_block_delta' && p.delta?.text) raw += p.delta.text;
         } catch {}
       }
     }
