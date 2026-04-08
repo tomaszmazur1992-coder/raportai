@@ -68,15 +68,17 @@ nav {
   text-align: center;
   padding: 80px 24px 60px;
   position: relative;
+  background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
 }
 .hero::before {
   content: '';
   position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,77,0,0.07) 0%, transparent 65%),
-    radial-gradient(ellipse 60% 40% at 50% 110%, rgba(100,120,160,0.04) 0%, transparent 70%);
+  background: rgba(0,0,0,0.45);
   pointer-events: none;
 }
+.hero > * { position: relative; z-index: 1; }
 .hero-tag {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 5px 14px;
@@ -93,15 +95,15 @@ nav {
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1.08;
-  color: #111111;
+  color: #ffffff;
   max-width: 720px;
   margin-bottom: 22px;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
 }
 .hero h1 em { font-style: normal; color: var(--orange); }
 .hero-sub {
   font-size: clamp(15px, 2vw, 17px);
-  color: #555555;
+  color: rgba(255,255,255,0.85);
   max-width: 460px;
   line-height: 1.65;
   margin-bottom: 40px;
@@ -130,9 +132,33 @@ nav {
   filter: brightness(1.05);
 }
 .hero-cta:active { transform: scale(0.99); }
-.hero-note { margin-top: 14px; font-size: 12px; color: #888888; }
-.hero-preview-link { display: block; margin-top: 10px; font-size: 13px; color: #888888; text-decoration: none; }
+.hero-note { margin-top: 14px; font-size: 12px; color: rgba(255,255,255,0.6); }
+.hero-preview-link { display: block; margin-top: 10px; font-size: 13px; color: rgba(255,255,255,0.7); text-decoration: none; }
 .hero-preview-link:hover { color: #FF4D00; text-decoration: underline; }
+
+/* HOW IT WORKS */
+.how { padding: 80px 24px; max-width: 920px; margin: 0 auto; }
+.how-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; margin-top: 48px; }
+.how-step { text-align: center; }
+.how-num {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--orange); color: #fff;
+  font-size: 20px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 4px 14px rgba(255,77,0,0.35);
+}
+.how-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #1a1a1a; }
+.how-desc { font-size: 14px; color: #666666; line-height: 1.6; }
+
+/* SAMPLE REPORT SECTION */
+.sample-section {
+  padding: 64px 24px;
+  text-align: center;
+  background: #ffffff;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+}
 
 /* SOCIAL PROOF */
 .social {
@@ -697,11 +723,34 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-tag">⚡ GOTOWY W OK. 2 MINUTY</div>
-  <h1>Przestań tracić klientki.<br><em>Zacznij zarabiać więcej.</em></h1>
-  <p class="hero-sub">Spersonalizowany raport marketingowy dla Twojego salonu — konkretny plan działania przygotowany przez AI na podstawie Twojej branży beauty i celów.</p>
+  <h1>Za mało klientek? Czy grafik pełny a zyski małe?<br><em>RaportAI znajdzie gdzie tracisz pieniądze.</em></h1>
+  <p class="hero-sub">Spersonalizowany raport marketingowy i biznesowy dla Twojego salonu — konkretny plan jak zdobyć więcej klientek i zwiększyć marżę. Przygotowany przez AI w ok. 2 minuty.</p>
   <a href="https://bit.ly/raportai-pl" class="hero-cta">Zamów raport za 149 zł →</a>
   <p class="hero-note">Bez subskrypcji · Jednorazowa płatność · Gotowy w ok. 2 minuty</p>
   <a href="/przykladowy-raport.html" target="_blank" class="hero-preview-link">Zobacz przykładowy raport →</a>
+</section>
+
+<!-- JAK TO DZIAŁA -->
+<section class="how">
+  <div class="section-label">Jak to działa</div>
+  <div class="section-title">Jak to działa?</div>
+  <div class="how-steps">
+    <div class="how-step">
+      <div class="how-num">1</div>
+      <div class="how-title">Wypełnij formularz (5 minut)</div>
+      <div class="how-desc">Opisz swoją branżę, przychód, problemy i cele — im więcej szczegółów, tym lepszy raport.</div>
+    </div>
+    <div class="how-step">
+      <div class="how-num">2</div>
+      <div class="how-title">AI analizuje Twój salon (2 minuty)</div>
+      <div class="how-desc">Sprawdza dane branżowe i tworzy spersonalizowany plan dopasowany do Twojej sytuacji.</div>
+    </div>
+    <div class="how-step">
+      <div class="how-num">3</div>
+      <div class="how-title">Dostajesz gotowy raport</div>
+      <div class="how-desc">Konkretne działania na 90 dni z podziałem budżetu — gotowe do wdrożenia od zaraz.</div>
+    </div>
+  </div>
 </section>
 
 <!-- SOCIAL PROOF -->
@@ -777,6 +826,14 @@ footer {
       <div style="font-size:20px;flex-shrink:0;">✅</div><div class="feat-title" style="margin:0;">Gabinet masażu i SPA</div>
     </div>
   </div>
+</section>
+
+<!-- SAMPLE REPORT -->
+<section class="sample-section">
+  <div class="section-label">Przykładowy raport</div>
+  <div class="section-title" style="margin-bottom:16px;">Zobacz jak wygląda raport</div>
+  <p style="font-size:15px;color:#666666;max-width:420px;margin:0 auto 32px;line-height:1.6;">Sprawdź przykładowy raport wygenerowany dla szkoły tańca — żebyś wiedziała czego się spodziewać.</p>
+  <a href="/przykladowy-raport.html" target="_blank" class="hero-cta">Zobacz przykładowy raport →</a>
 </section>
 
 <!-- PRICING SECTION -->
