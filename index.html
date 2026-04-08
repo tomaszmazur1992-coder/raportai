@@ -68,7 +68,7 @@ nav {
   text-align: center;
   padding: 80px 24px 60px;
   position: relative;
-  background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80');
+  background-image: url('hero-bg.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -153,11 +153,25 @@ nav {
 
 /* SAMPLE REPORT SECTION */
 .sample-section {
-  padding: 64px 24px;
+  padding: 80px 24px;
   text-align: center;
-  background: #ffffff;
-  border-top: 1px solid #eeeeee;
-  border-bottom: 1px solid #eeeeee;
+  background: #F2EFE9;
+  border-top: 1px solid #e0ddd6;
+  border-bottom: 1px solid #e0ddd6;
+}
+.sample-section .sample-heading {
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #111111;
+  margin-bottom: 14px;
+}
+.sample-section .sample-sub {
+  font-size: 16px;
+  color: #555555;
+  max-width: 440px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
 }
 
 /* SOCIAL PROOF */
@@ -830,10 +844,9 @@ footer {
 
 <!-- SAMPLE REPORT -->
 <section class="sample-section">
-  <div class="section-label">Przykładowy raport</div>
-  <div class="section-title" style="margin-bottom:16px;">Zobacz jak wygląda raport</div>
-  <p style="font-size:15px;color:#666666;max-width:420px;margin:0 auto 32px;line-height:1.6;">Sprawdź przykładowy raport wygenerowany dla szkoły tańca — żebyś wiedziała czego się spodziewać.</p>
-  <a href="/przykladowy-raport.html" target="_blank" class="hero-cta">Zobacz przykładowy raport →</a>
+  <div class="sample-heading">📄 Sprawdź przykładowy raport</div>
+  <p class="sample-sub">Zobacz dokładnie co dostaniesz za 149 zł — przed zakupem.</p>
+  <a href="/przykladowy-raport.html" target="_blank" class="hero-cta">Zobacz przykładowy raport salonu kosmetycznego →</a>
 </section>
 
 <!-- PRICING SECTION -->
