@@ -1199,7 +1199,7 @@ document.getElementById('form').addEventListener('submit', async (e) => {
           // Obsługa zwykłego tekstu
           if (p.type === 'content_block_delta' && p.delta?.type === 'text_delta') raw += p.delta.text;
           // Kompatybilność wsteczna
-          if (p.type === 'content_block_delta' && p.delta?.text) raw += p.delta.text;
+          else if (p.type === 'content_block_delta' && p.delta?.text) raw += p.delta.text;
         } catch {}
       }
     }
