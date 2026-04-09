@@ -752,7 +752,7 @@ footer {
         <label class="ci"><input type="checkbox" value="Za mało klientów"><span>Za mało klientów</span></label>
         <label class="ci"><input type="checkbox" value="Niska konwersja (odwiedziny bez zakupów)"><span>Niska konwersja (odwiedziny bez zakupów)</span></label>
         <label class="ci"><input type="checkbox" value="Brak czasu na marketing"><span>Brak czasu na marketing</span></label>
-        <label class="ci"><input type="checkbox" value="Nie wiem co publikować w social mediach"><span>Nie wiem co publikować w social mediach</span></label>
+        <label class="ci"><input type="checkbox" value="Nie wiem, co publikować w social mediach"><span>Nie wiem, co publikować w social mediach</span></label>
         <label class="ci"><input type="checkbox" value="Wysoka konkurencja, trudno się wyróżnić"><span>Wysoka konkurencja, trudno się wyróżnić</span></label>
         <label class="ci"><input type="checkbox" value="Klienci nie wracają"><span>Klienci nie wracają</span></label>
       </div>
@@ -790,7 +790,7 @@ footer {
     </div>
 
     <div class="field">
-      <label class="flabel">11 — Co próbowałeś robić i nie zadziałało? <span style="color:#2a2a2a;font-weight:400;text-transform:none;letter-spacing:0">(opcjonalnie)</span></label>
+      <label class="flabel">11 — Co próbowałaś robić i nie zadziałało? <span style="color:#2a2a2a;font-weight:400;text-transform:none;letter-spacing:0">(opcjonalnie)</span></label>
       <textarea id="niedziala" placeholder="np. Reklamy na Facebooku, obniżanie cen, więcej postów na Instagramie…"></textarea>
     </div>
 
@@ -861,7 +861,7 @@ footer {
   <button class="print-btn" id="printBtn">↓ Pobierz PDF</button>
   <p style="font-size:11px;color:#888888;text-align:center;margin-top:8px;line-height:1.5;">
     Aby zapisać jako PDF: kliknij <strong style="color:#444444">Drukuj</strong> → wybierz <strong style="color:#444444">„Zapisz jako PDF"</strong> → kliknij Zapisz<br>
-    Oraz odznacz <strong style="color:#444444">„Nagłówki i stopki"</strong> żeby usunąć adres URL ze stron
+    Oraz odznacz <strong style="color:#444444">„Nagłówki i stopki"</strong>, żeby usunąć adres URL ze stron
   </p>
 </div>
 
@@ -889,8 +889,8 @@ function buildPrompt(d) {
   const optCel6m    = d.cel6m     ? `- Cel biznesowy na 6 miesięcy: ${d.cel6m}` : '';
 
   const secNieDziala = d.niedziala ? `
-## DLACZEGO TO CO PRÓBOWAŁEŚ NIE ZADZIAŁAŁO — I CO ZROBIĆ ZAMIAST TEGO
-Klient próbował: "${d.niedziala}". Wyjaśnij KONKRETNIE (nie ogólnie) dlaczego to nie przyniosło efektu w kontekście jego branży "${d.typ}", etapu "${d.staz}" i kanałów sprzedaży. Następnie powiedz dokładnie co powinien zrobić zamiast tego — minimum 3 konkretne alternatywy z krokami wdrożenia.
+## DLACZEGO TO, CO PRÓBOWAŁAŚ, NIE ZADZIAŁAŁO — I CO ZROBIĆ ZAMIAST TEGO
+Klientka próbowała: "${d.niedziala}". Wyjaśnij KONKRETNIE (nie ogólnie) dlaczego to nie przyniosło efektu w kontekście jej branży "${d.typ}", etapu "${d.staz}" i kanałów sprzedaży. Następnie powiedz dokładnie, co powinna zrobić zamiast tego — minimum 3 konkretne alternatywy z krokami wdrożenia.
 ` : '';
 
   const secLink = d.link ? `
