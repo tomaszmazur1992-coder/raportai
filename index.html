@@ -76,7 +76,7 @@ nav {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.50);
+  background: rgba(0,0,0,0.72);
   z-index: 0;
 }
 .hero > * { position: relative; z-index: 1; }
@@ -99,15 +99,16 @@ nav {
   color: #ffffff;
   max-width: 720px;
   margin-bottom: 22px;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
 }
 .hero h1 em { font-style: normal; color: var(--orange); }
 .hero-sub {
   font-size: clamp(15px, 2vw, 17px);
-  color: rgba(255,255,255,0.85);
+  color: #ffffff;
   max-width: 460px;
   line-height: 1.65;
   margin-bottom: 40px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
 }
 .hero-cta {
   display: inline-flex; align-items: center; gap: 10px;
@@ -133,8 +134,8 @@ nav {
   filter: brightness(1.05);
 }
 .hero-cta:active { transform: scale(0.99); }
-.hero-note { margin-top: 14px; font-size: 12px; color: rgba(255,255,255,0.6); }
-.hero-preview-link { display: block; margin-top: 10px; font-size: 13px; color: rgba(255,255,255,0.7); text-decoration: none; }
+.hero-note { margin-top: 14px; font-size: 12px; color: #ffffff; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
+.hero-preview-link { display: block; margin-top: 10px; font-size: 13px; color: #ffffff; text-decoration: none; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
 .hero-preview-link:hover { color: #FF4D00; text-decoration: underline; }
 
 /* HOW IT WORKS */
@@ -750,7 +751,7 @@ footer {
 <section class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-tag">⚡ GOTOWY W OK. 2 MINUTY</div>
-  <h1>Za mało klientek? Czy grafik pełny a zyski małe?<br><em>RaportAI znajdzie gdzie tracisz pieniądze.</em></h1>
+  <h1>Za mało klientek? Czy grafik pełny, a zyski małe?<br><em>RaportAI znajdzie gdzie tracisz pieniądze.</em></h1>
   <p class="hero-sub">Spersonalizowany raport marketingowy i biznesowy dla Twojego salonu — konkretny plan jak zdobyć więcej klientek i zwiększyć marżę. Przygotowany przez AI w ok. 2 minuty.</p>
   <a href="https://bit.ly/raportai-pl" class="hero-cta">Zamów raport za 149 zł →</a>
   <p class="hero-note">Bez subskrypcji · Jednorazowa płatność · Gotowy w ok. 2 minuty</p>
