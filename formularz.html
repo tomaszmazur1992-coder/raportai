@@ -1037,7 +1037,11 @@ function renderMd(t) {
     pBuf.push(inline(tr));
   }
   closeLists(); flushP();
-  return out.join('\n');
+  let html = out.join('\n');
+  // Scal złamane listy — gdy pusty wiersz rozdzielił kolejne punkty listy
+  html = html.replace(/<\/ol>\n<ol>/g, '');
+  html = html.replace(/<\/ul>\n<ul>/g, '');
+  return html;
 }
 
 document.getElementById('printBtn').addEventListener('click', () => {
