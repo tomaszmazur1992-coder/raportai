@@ -1231,6 +1231,11 @@ document.getElementById('form').addEventListener('submit', async (e) => {
     loading.style.display = 'none';
     rc.innerHTML = renderMd(raw);
 
+    // Zwiększ licznik raportów
+    fetch('https://raportai-proxy.kontakt-raportai.workers.dev/counter/increment', {
+      method: 'POST'
+    }).catch(() => {});
+
     // Uzupełnij nagłówek wydruku
     const months = ['Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec',
                     'Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień'];
