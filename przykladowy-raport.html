@@ -3,156 +3,218 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Raport RaportAI — Szkoła Tańca Ritmo, Kraków</title>
+<title>Raport RaportAI — Studio PMU Karolina</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Georgia', serif; background: #F5F4F0; color: #1a1a1a; line-height: 1.75; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F5F4F0; color: #1a1a1a; line-height: 1.75; }
+  nav { background: rgba(245,244,240,0.95); border-bottom: 1px solid #e0ddd6; padding: 0 32px; height: 54px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #1a1a1a; }
+  .nav-logo span { color: #FF4D00; }
+  .nav-cta { padding: 7px 16px; background: #FF4D00; color: #fff; border-radius: 8px; font-size: 12px; font-weight: 700; text-decoration: none; }
+  #pcover { display: none; background: #0f0f0f; min-height: 100vh; padding: 52mm 18mm 0; font-family: Arial, sans-serif; box-sizing: border-box; page-break-after: always; break-after: page; }
+  #pcover .pco-logo { font-size: 34pt; font-weight: 900; letter-spacing: 0; text-transform: uppercase; color: #ffffff; line-height: 1; margin-bottom: 10mm; }
+  #pcover .pco-logo span { color: #FF4D00; }
+  #pcover .pco-decorline { width: 48px; height: 3px; background: #FF4D00; margin-bottom: 32mm; }
+  #pcover .pco-label { font-size: 9pt; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: #555; margin-bottom: 10px; }
+  #pcover .pco-title { font-size: 26pt; font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 18px; max-width: 88%; }
+  #pcover .pco-date { font-size: 10pt; color: #666; line-height: 1.9; }
+  #pcover .pco-bar { font-size: 8pt; color: #444; border-top: 1px solid #222; margin-top: 24mm; padding-top: 5mm; }
+  #phdr, #pftr { display: none; }
   .wrap { max-width: 780px; margin: 0 auto; padding: 48px 32px 80px; }
-  .badge { display: inline-block; background: #FF4D00; color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; margin-bottom: 32px; font-family: sans-serif; }
-  h1 { font-size: 26px; font-weight: 700; line-height: 1.3; margin-bottom: 8px; }
-  .meta { font-size: 13px; color: #888; font-family: sans-serif; margin-bottom: 48px; }
-  h2 { font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #FF4D00; margin: 40px 0 14px; font-family: sans-serif; border-top: 1px solid #e0ddd6; padding-top: 32px; }
-  h3 { font-size: 16px; font-weight: 700; margin: 24px 0 8px; }
-  p { margin-bottom: 16px; }
-  strong { font-weight: 700; }
-  em { font-style: italic; }
-  ul, ol { margin: 0 0 16px 24px; }
-  li { margin-bottom: 6px; }
-  .highlight { background: #fff8f5; border-left: 3px solid #FF4D00; padding: 14px 18px; margin: 20px 0; border-radius: 0 6px 6px 0; }
-  .footer-note { margin-top: 56px; padding-top: 24px; border-top: 1px solid #e0ddd6; font-size: 13px; color: #999; font-family: sans-serif; text-align: center; }
-  @media print { body { background: #fff; } .wrap { padding: 20px; } }
+  .badge { display: inline-block; background: #FF4D00; color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; margin-bottom: 24px; }
+  .report-title { font-size: clamp(22px, 3.5vw, 32px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 8px; color: #111; }
+  .report-meta { font-size: 13px; color: #888; margin-bottom: 48px; }
+  #rc h2 { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FF4D00; margin: 40px 0 14px; border-top: 1px solid #e0ddd6; padding-top: 32px; }
+  #rc h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+  #rc h3 { font-size: 16px; font-weight: 700; margin: 24px 0 8px; color: #111; }
+  #rc p { margin-bottom: 16px; font-size: 15px; line-height: 1.75; }
+  #rc strong { font-weight: 700; }
+  #rc em { font-style: italic; color: #444; }
+  #rc ul, #rc ol { margin: 0 0 16px 24px; }
+  #rc li { margin-bottom: 8px; font-size: 15px; line-height: 1.7; page-break-inside: avoid; }
+  #rc hr { border: none; border-top: 1px solid #e0ddd6; margin: 32px 0; }
+  .print-wrap { text-align: center; margin: 48px 0 0; }
+  .print-btn { padding: 14px 32px; background: #1a1a1a; color: #fff; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; }
+  .print-hint { font-size: 11px; color: #999; margin-top: 8px; }
+  footer { text-align: center; padding: 32px; border-top: 1px solid #e0ddd6; margin-top: 48px; }
+  .footer-logo { font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px; }
+  .footer-logo span { color: #FF4D00; }
+  .footer-text { font-size: 12px; color: #888; }
+  @media print {
+    nav, .print-wrap, footer { display: none !important; }
+    body { background: #fff; }
+    .wrap { padding: 0; max-width: 100%; }
+    #pcover { display: block !important; }
+    #phdr { display: block !important; margin-bottom: 18pt; padding-bottom: 10pt; border-bottom: 2.5pt solid #FF4D00; font-family: Arial, sans-serif; }
+    #phdr .ph-logo { font-size: 20pt; font-weight: 900; letter-spacing: 0; text-transform: uppercase; color: #FF4D00; }
+    #phdr .ph-typ { font-size: 11pt; font-weight: 700; color: #111; margin-top: 5pt; }
+    #phdr .ph-date { font-size: 8pt; color: #888; margin-top: 2pt; }
+    #pftr { display: flex !important; margin-top: 20pt; padding-top: 8pt; border-top: 0.5pt solid #ddd; font-size: 8pt; color: #999; justify-content: space-between; }
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="badge">RaportAI — raport spersonalizowany</div>
-  <h1>Szkoła Tańca Latino "Ritmo" — Plan wzrostu od 6 000 zł do 14 000 zł miesięcznie</h1>
-  <div class="meta">Branża: Szkoła tańca latino &nbsp;·&nbsp; Kraków &nbsp;·&nbsp; Staż: 4 lata &nbsp;·&nbsp; Budżet: 400 zł/mies.</div>
 
-  <h2>Twoja sytuacja — co widzimy</h2>
-  <p>Szkoła tańca, która działa cztery lata i utrzymuje się wyłącznie z poleceń, wpadła w pułapkę którą branżowi trenerzy nazywają <strong>"plateau lojalnościowe"</strong> — masz stałych kursantów, którzy uwielbiają zajęcia, ale Twoja baza nie rośnie, bo nikt aktywnie nie szuka Cię w internecie, a jedynym kanałem pozyskania jest rekomendacja znajomego znajomego. To nie jest problem z jakością — to problem z widocznością.</p>
-  <p>Według danych Polskiej Federacji Tańca Sportowego, rynek szkół tańca w Polsce urósł o 23% w latach 2022–2024, głównie dzięki popularności programów typu "Dancing with the Stars" i TikToka z treściami tanecznymi. Jednocześnie <strong>78% osób zainteresowanych nauką tańca zaczyna poszukiwania od YouTube lub Instagram</strong> — nie od zapytania znajomych. Przy czteroletnich doświadczeniach masz dokładnie ten materiał, którego szukają — brakuje Ci tylko systemu który go eksponuje.</p>
-  <p>Twój przychód na poziomie 6 000 zł miesięcznie przy kursach tańca w Krakowie sugeruje około 20–25 aktywnych kursantów. Średnia krakowska szkoła tańca z aktywnym profilem w social mediach obsługuje 60–80 kursantów przy tej samej powierzchni i godzinach. Luka jest wyłącznie marketingowa, nie operacyjna. <strong>Jeśli naprawisz jedną rzecz — sposób w jaki nowe osoby Cię odkrywają — wszystko inne ruszy samo.</strong></p>
+<nav>
+  <div class="nav-logo">Raport<span>AI</span></div>
+  <a href="https://bit.ly/raportai-pl" class="nav-cta">Zamów swój raport →</a>
+</nav>
 
-  <h2>3 największe szanse — teraz</h2>
-
-  <h3>Szansa pierwsza: TikTok i Reels jako darmowy kanał pozyskania — specyficzny dla tańca latino</h3>
-  <p>Latino to branża, w której content video nie wymaga budżetu — wymaga odwagi. 15-sekundowy filmik z fragmentem choreografii salsy lub bachaty, nagrany telefonem podczas normalnych zajęć, trafia do algorytmu TikToka który sam dobiera go do osób zainteresowanych tańcem w Krakowie i okolicach. Nie potrzebujesz montażysty ani kamerzysty. Potrzebujesz konsekwencji: 3 filmy tygodniowo przez 8 tygodni.</p>
-  <p>Konkretny format który działa: "Naucz się tego kroku w 60 sekund" — pokazujesz jeden krok, tłumaczysz go w 3 ujęciach, dodajesz popularny utwór latino. Tego typu filmiki w niszach tanecznych osiągają zasięgi 5 000–40 000 wyświetleń organicznie, bez żadnej reklamy płatnej.</p>
-  <p><strong>Jak zmierzyć efekt po 30 dniach:</strong> Minimum 3 nowe zapisy na kurs próbny, które jako źródło podają "widziałam na TikToku/Instagramie". Cel twardy: 8 nowych kontaktów z social media w pierwszym miesiącu.</p>
-
-  <h3>Szansa druga: Kurs próbny jako produkt wejściowy — nie jako prezent</h3>
-  <p>Większość szkół tańca oferuje "darmową lekcję próbną" i traci na niej, bo nie ma systemu konwersji po tej lekcji. Zmień podejście: wprowadź <strong>płatny warsztat wejściowy za 49 zł</strong> — "Wstęp do salsy w 90 minut". Niska cena eliminuje osoby niezaangażowane, a jednocześnie tworzy zobowiązanie psychologiczne: ktoś kto zapłacił 49 zł, jest 3× bardziej skłonny zapisać się na pełny kurs niż ktoś który przyszedł za darmo.</p>
-  <p>Organizuj taki warsztat raz w miesiącu, w sobotę o 11:00 — czas kiedy Kraków ma ruch turystyczny i lokalnych singli szukających aktywności na weekend. Promuj na Meetup.com, w krakowskich grupach FB i przez Eventbrite — bezpłatnie.</p>
-  <p><strong>Jak zmierzyć efekt po 30 dniach:</strong> Minimum 12 osób na pierwszym warsztacie, konwersja na kurs regularny minimum 40% (czyli 5 nowych kursantów z jednego warsztatu = +1 500–2 000 zł przychodu z jednego sobotnie wydarzenia).</p>
-
-  <h3>Szansa trzecia: Program "Przyprowadź partnera" — mechanizm wirusowy specyficzny dla tańca w parach</h3>
-  <p>Salsa i bachata to tańce w parach. Twoi obecni kursanci mają partnerów, przyjaciół, współpracowników którzy mogliby tańczyć — ale nikt ich nie zaprosił w sposób który usuwa barierę. Wprowadź akcję: <strong>"Twój partner tańczy pierwszy miesiąc za połowę"</strong> — każdy obecny kursant dostaje kod rabatowy do przekazania jednej osobie. To nie jest zniżka dla wszystkich — to ekskluzywny kupon dla konkretnej osoby poleconej przez konkretnego kursanta.</p>
-  <p>Mechanizm działa bo: (1) usuwa barierę finansową dla nowej osoby, (2) sprawia że obecny kursant staje się ambasadorem bo "dał" coś wartościowego znajomemu, (3) pary taneczne mają wyższy retention — zostają dłużej bo ćwiczą razem.</p>
-  <p><strong>Jak zmierzyć efekt po 30 dniach:</strong> Minimum 8 kodów przekazanych i minimum 4 realizacje = 4 nowych kursantów z zerowym kosztem reklamy, przy koszcie: -50% pierwszego miesiąca jednej osoby.</p>
-
-  <h2>Plan na 90 dni — od 6 000 zł do 14 000 zł miesięcznie</h2>
-
-  <h3>Miesiąc 1 — Fundamenty</h3>
-  <ul>
-    <li><strong>Zadanie 1: Profil TikTok i Instagram — setup.</strong> Stwórz konta (lub odśwież istniejące), nagraj 6 filmów-zapasów w jeden dzień podczas zajęć, zaplanuj publikację co 2 dni. Wskaźnik sukcesu: 6 opublikowanych filmów, minimum 500 łącznych wyświetleń w pierwszym tygodniu.</li>
-    <li><strong>Zadanie 2: Warsztat sobotni — pierwsza edycja.</strong> Wyznacz datę, stwórz wydarzenie na Meetup i Eventbrite, opublikuj w 5 krakowskich grupach FB. Wskaźnik sukcesu: 12 zapisanych osób minimum 5 dni przed wydarzeniem.</li>
-    <li><strong>Zadanie 3: Kody "Przyprowadź partnera".</strong> Stwórz 25 unikalnych kodów (wystarczy arkusz Google z imionami), rozdaj każdemu aktywnemu kursantowi. Wskaźnik sukcesu: 15 kodów przekazanych w ciągu 2 tygodni.</li>
-    <li><strong>Zadanie 4: Google Moja Firma — aktualizacja.</strong> Dodaj zdjęcia z zajęć, uzupełnij opis, dodaj link do zapisu. Wskaźnik sukcesu: profil kompletny w 100%, minimum 5 nowych opinii w ciągu miesiąca.</li>
-    <li><strong>Zadanie 5: Lista mailowa istniejących kursantów.</strong> Zbierz emaile wszystkich aktywnych i byłych kursantów do jednego miejsca (Mailchimp free). Wskaźnik sukcesu: minimum 40 kontaktów na liście.</li>
-  </ul>
-
-  <h3>Miesiąc 2 — Wzrost</h3>
-  <ul>
-    <li><strong>Zadanie 1: Druga edycja warsztatu sobotniego</strong> — wykorzystaj zdjęcia z pierwszej edycji jako social proof w promocji. Cel: 18 osób.</li>
-    <li><strong>Zadanie 2: Pierwszy mailing do bazy</strong> — "Nowości w Ritmo, co słychać, co planujemy". Wskaźnik: open rate minimum 35%.</li>
-    <li><strong>Zadanie 3: Współpraca z lokalnym barem/restauracją latino</strong> — wymiana: Ty dajesz im 2 wejściówki na zajęcia, oni dają Ci ulotkę przy wejściu i post na FB. Zero kosztów.</li>
-    <li><strong>Zadanie 4: TikTok — analiza i skalowanie</strong> — które filmy miały najwyższy zasięg? Rób więcej tego, zostaw resztę. Cel: jeden film powyżej 10 000 wyświetleń.</li>
-    <li><strong>Zadanie 5: Wprowadzenie nowego poziomu kursu</strong> — jeśli masz kursantów po 4–6 miesiącach, czas na "Ritmo Intermediate". Wyższy poziom = wyższa cena i mniejszy churn.</li>
-  </ul>
-
-  <h3>Miesiąc 3 — Skalowanie</h3>
-  <ul>
-    <li><strong>Zadanie 1: Reklama Meta 200 zł</strong> — targetowanie: Kraków, wiek 25–45, zainteresowania: taniec, muzyka latino, fitness. Cel: 15 nowych zapytań.</li>
-    <li><strong>Zadanie 2: Milonga lub wieczór taneczny jako wydarzenie płatne</strong> — 39–59 zł za osobę, 40 osób = 1 600–2 400 zł dodatkowego przychodu w jeden wieczór.</li>
-    <li><strong>Zadanie 3: System automatycznych przypomnień</strong> — SMS lub WhatsApp do kursantów 3 dni przed końcem opłaconego okresu. Wskaźnik: churn poniżej 15%.</li>
-    <li><strong>Zadanie 4: Pakiet "Taniec na wieczór panieński"</strong> — Kraków to jeden z głównych kierunków wieczorów panieńskich w Polsce. Stwórz ofertę: 90-minutowy warsztat dla grupy 8–12 osób, 89 zł/osoba. Jeden warsztat = 700–1 000 zł.</li>
-    <li><strong>Zadanie 5: Testimoniale video</strong> — poproś 3 kursantki o 30-sekundowy filmik "dlaczego tańczę w Ritmo". Umieść na stronie i w social media.</li>
-  </ul>
-
-  <h2>Priorytety kanałów i komunikacja z klientami</h2>
-  <p>Przy budżecie 400 zł miesięcznie nie rozpraszaj się — skup się na <strong>dwóch kanałach: TikTok/Reels (organicznie, zero złotych) i Meta Ads (200 zł w miesiącu 3)</strong>. Pozostałe 200 zł: 100 zł na Meetup/Eventbrite na warsztaty, 100 zł na materiały (tło, rekwizyty do filmów).</p>
-  <p>Twoja grupa docelowa to kobiety 25–42 lat w Krakowie, często singielki lub w związkach szukające aktywności jako para. Język komunikacji: <strong>ciepły, zachęcający, bez presji</strong> — nigdy "naucz się tańczyć" (brzmi jak obowiązek), zawsze "poczuj rytm", "spędź czas inaczej", "zaskocz siebie". Publikuj: wtorek i czwartek 18:00–20:00, sobota 10:00–12:00 (to kiedy Twoja grupa jest online).</p>
-  <p>Przykładowe treści które działają w tej branży:</p>
-  <ul>
-    <li>Post: "Ten krok zmienił moje życie towarzyskie — i możesz go nauczyć się w 10 minut" [+ video]</li>
-    <li>Story: "Kto przychodzi dziś na salsa beginner? Zostało ostatnie miejsce 👀" [urgency bez kłamstwa]</li>
-    <li>Email temat: "Ritmo — coś nowego w przyszłą sobotę (dla Ciebie i przyjaciółki)"</li>
-  </ul>
-
-  <h2>Podział budżetu 400 zł miesięcznie</h2>
-  <ul>
-    <li><strong>200 zł — Meta Ads (od miesiąca 3)</strong> — targetowanie lokalne, cel: zapisy na warsztat próbny. Szacowany koszt pozyskania jednego leada: 13–18 zł.</li>
-    <li><strong>100 zł — Meetup Pro / Eventbrite</strong> — widoczność warsztatów sobotnich w krakowskiej społeczności. Jeden zapis z Meetup = zwrot z całego miesiąca subskrypcji.</li>
-    <li><strong>100 zł — materiały do contentu</strong> — ring light (jednorazowo 80 zł), naklejki/rekwizyty do filmów, ewentualnie jednorazowa sesja zdjęciowa z telefonem.</li>
-  </ul>
-  <p>Przy tym podziale budżetu Twój koszt pozyskania jednego nowego kursanta wynosi szacunkowo <strong>25–40 zł</strong> — przy wartości kursanta na poziomie 300–600 zł rocznie to ROI 8–15×.</p>
-
-  <h2>3 rzeczy które możesz zrobić jutro</h2>
-
-  <div class="highlight">
-    <p><strong>Działanie 1: Nagraj pierwszy TikTok podczas jutrzejszych zajęć</strong></p>
-    <p>Co zrobić: Nagraj 15–30 sekund fragmentu choreografii z napisem "Naucz się tego kroku — zajęcia w Krakowie".</p>
-    <p>Jak krok po kroku:</p>
-    <ol>
-      <li>Poproś kursanta żeby nagrał telefonem poziomo</li>
-      <li>Wybierz popularny utwór latino z biblioteki TikToka</li>
-      <li>Dodaj napis z lokalizacją: "Kraków — dołącz do nas"</li>
-      <li>Opublikuj z hashtagami: #tanieckraków #salsakraków #latino #szkołatańca</li>
-    </ol>
-    <p><em>Efekt który zobaczysz w ciągu 7 dni:</em> <strong>500–3 000 wyświetleń organicznych i minimum 2 wiadomości z pytaniem o zapisy.</strong></p>
-  </div>
-
-  <div class="highlight">
-    <p><strong>Działanie 2: Wyślij kody "Przyprowadź partnera" do wszystkich kursantów</strong></p>
-    <p>Co zrobić: Napisz do każdego aktywnego kursanta wiadomość na WhatsApp z unikalnym kodem rabatowym na -50% pierwszego miesiąca dla poleconej osoby.</p>
-    <p>Jak krok po kroku:</p>
-    <ol>
-      <li>Przygotuj listę 20–25 aktywnych kursantów w arkuszu Google</li>
-      <li>Przypisz każdemu unikalny kod (np. RITMO-ANNA, RITMO-KASIA)</li>
-      <li>Wyślij wiadomość: "Mam dla Ciebie coś specjalnego — Twój znajomy może dołączyć do nas za połowę ceny. Kod: [KOD]. Ważny 30 dni."</li>
-      <li>Zapisz kto dostał jaki kod żeby śledzić realizacje</li>
-    </ol>
-    <p><em>Efekt który zobaczysz w ciągu 7 dni:</em> <strong>Minimum 5 pytań od nowych osób o szczegóły kursu.</strong></p>
-  </div>
-
-  <div class="highlight">
-    <p><strong>Działanie 3: Stwórz wydarzenie na Meetup.com na warsztat sobotni</strong></p>
-    <p>Co zrobić: Załóż konto na Meetup, stwórz grupę "Taniec Latino Kraków" i opublikuj pierwsze wydarzenie na najbliższą wolną sobotę.</p>
-    <p>Jak krok po kroku:</p>
-    <ol>
-      <li>Wejdź na meetup.com — zakładka "Start a Group" — kategoria: Dancing</li>
-      <li>Tytuł wydarzenia: "Wstęp do salsy — warsztat dla początkujących (Kraków)"</li>
-      <li>Cena: 49 zł, maksymalnie 20 osób (tworzy presję zapisu)</li>
-      <li>Opublikuj też w grupach FB: "Aktywny Kraków", "Co robić w Krakowie", "Single Kraków"</li>
-    </ol>
-    <p><em>Efekt który zobaczysz w ciągu 7 dni:</em> <strong>6–10 zapisów na warsztat i minimum 40 osób które klikną "zainteresowana".</strong></p>
-  </div>
-
-  <h2>Twój potencjał — gdzie możesz być za 6 miesięcy</h2>
-  <p><strong>Dźwignia 1: Nowi kursanci z social media i warsztatów</strong> — 12 nowych kursantów × 300 zł/mies. = <strong>+3 600 zł/mies.</strong></p>
-  <p><strong>Dźwignia 2: Warsztaty panieńskie i firmowe</strong> — 2 events/mies. × 800 zł = <strong>+1 600 zł/mies.</strong></p>
-  <p><strong>Dźwignia 3: Poziom intermediate + wyższe ceny</strong> — retencja starszych kursantów na wyższej stawce = <strong>+1 800 zł/mies.</strong></p>
-  <p>Łączny cel za 6 miesięcy: <strong>12 900–14 000 zł miesięcznie</strong>.</p>
-
-  <h2>Twój zwrot z tego raportu</h2>
-  <div class="highlight">
-    <p>"Twój raport kosztował 149 zł. Jeśli wdrożysz choćby jedną z powyższych strategii, zwróci się w ciągu <strong>7 dni</strong> — szacując konserwatywnie."</p>
-  </div>
-
-  <p style="margin-top:32px; color:#666;">Podziel się tym raportem ze znajomym który prowadzi firmę — może mu pomóc tak samo jak Tobie.</p>
-
-  <div class="footer-note">Wygenerowano przez RaportAI &nbsp;·&nbsp; raportai.com.pl &nbsp;·&nbsp; &copy; 2026</div>
+<!-- PRINT COVER -->
+<div id="pcover">
+  <div class="pco-logo">Raport<span>AI</span></div>
+  <div class="pco-decorline"></div>
+  <div class="pco-label">Raport Strategiczny</div>
+  <div class="pco-title">Studio PMU (makijaż permanentny)</div>
+  <div class="pco-date">Kwiecień 2026<br>Raport Strategiczny 2026</div>
+  <div class="pco-bar">raportai.com.pl &nbsp;·&nbsp; Wygenerowano przez RaportAI</div>
 </div>
+
+<!-- PRINT HEADER (strona 2+) -->
+<div id="phdr">
+  <div class="ph-logo">RaportAI</div>
+  <div class="ph-typ">Studio PMU (makijaż permanentny)</div>
+  <div class="ph-date">Kwiecień 2026 · Raport Strategiczny 2026</div>
+</div>
+
+<div class="wrap">
+  <div class="badge">Przykładowy raport</div>
+  <div class="report-title">Studio PMU (makijaż permanentny)</div>
+  <div class="report-meta">Raport wygenerowany przez RaportAI &nbsp;·&nbsp; Kwiecień 2026</div>
+
+  <div id="rc">
+<h2>TWOJA SYTUACJA — CO WIDZIMY</h2>
+<p>Masz studio PMU działające 1–3 lata, zarabiasz między 5 000 a 20 000 zł miesięcznie i czujesz, że kręcisz się w miejscu — a konkretny mechanizm, który Cię blokuje, nazywa się "pułapką pojedynczej wizyty": Twoi klienci przychodzą raz, są zachwyceni efektem, ale nikt im nie powiedział, kiedy wrócić, po co i co jeszcze mogą zrobić. Efekt jest taki, że płacisz pełną "cenę wejścia" za każdego nowego klienta z reklamy lub z polecenia, zamiast monetyzować tych, których już masz. To nie jest kwestia złej jakości pracy — to brak systemu retencji, który w branży PMU jest absolutnie krytyczny, bo sam zabieg "zaprasza" do powrotu: makijaż permanentny z czasem blednie i wymaga odświeżenia, dlatego należy go odświeżać raz do roku. Masz więc wbudowany w sam produkt powód do powrotu klienta — i najprawdopodobniej go nie wykorzystujesz aktywnie.</p>
+<p>Teraz połącz ze sobą kilka faktów z Twojej sytuacji: działasz tylko na Instagramie i stacjonarnie, masz budżet do 500 zł miesięcznie, obsługujesz dwie grupy wiekowe (18–35 i 35–55) i skarżysz się jednocześnie na brak nowych klientów i brak powrotów. To oznacza, że Twój Instagram prawdopodobnie generuje zasięgi i polubienia, ale nie konwertuje ich na zapisy — bo brakuje jednego elementu: wyraźnego wezwania do działania i czytelnej ścieżki "jak się umówić". Kobiety z grupy 35–55 rzadko same piszą w komentarzach — one czytają, porównują, a potem dzwonią lub piszą prywatną wiadomość, ale tylko jeśli zobaczą konkretny bodziec. Twój Instagram dociera do 18–35-latek, które lubią i scrollują dalej, a ta starsza, bardziej płacąca grupa potrzebuje aktywowania przez Facebook lub przez Google. Tymczasem Facebook masz, ale — z wysokim prawdopodobieństwem — nie publikujesz na nim regularnie lub nie prowadzisz go inaczej niż jako kopię Instagrama.</p>
+<p>Aktualne dane branżowe mówią jasno: typowy wskaźnik powrotów klientek w studio PMU w Polsce wynosi zaledwie 25–35%, podczas gdy powinien przekraczać 60–70% (korektа po zabiegu, odświeżenie po roku, cross-sell kolejnej usługi). Średni koszyk pierwszej wizyty w studio PMU w Polsce w 2025–2026 roku to 350–700 zł za brwi i 400–800 zł za usta — ale prawdziwy przychód od jednej klientki na przestrzeni 3 lat (korekta + odświeżenie + ewentualnie usta lub kreska) to potencjalnie 1 500–2 500 zł. Dynamiczny rozwój rynku PMU sprawia, że branża szybko się rozwija i stale oferuje nowe rozwiązania — co dla Ciebie oznacza rosnącą liczbę potencjalnych klientek, ale jednocześnie coraz więcej konkurentów, którzy walczą o tę samą pulę. W 2026 roku dominującymi trendami są: nano brwi jako ulepszona wersja microbladingu oraz brwi hybrydowe łączące microblading z metodą cieniowania ombre, dające efekt trójwymiarowej głębi. Dodatkowo trendy kształtujące podejście do naturalnego piękna i precyzji pigmentacji oznaczają, że klientki coraz częściej szukają specjalisty od konkretnej techniki, nie "studia od wszystkiego". Jeśli naprawisz jeden element — zbudujesz aktywny system follow-up z każdą klientką po zabiegu — wszystkie inne działania marketingowe zaczną działać dwa razy skuteczniej, bo każda wydana złotówka na pozyskanie klienta zwróci się wielokrotnie zamiast jednorazowo.</p>
+<hr>
+<h2>3 NAJWIĘKSZE SZANSE — TERAZ</h2>
+<p><strong>Szansa 1: Protokół "Korekta + rok później" — automatyczny system powrotów</strong></p>
+<p>W branży PMU każdy zabieg ma wbudowany termin powrotu: korekta po 4–6 tygodniach od pierwszego zabiegu (obowiązkowa część procesu gojenia) oraz odświeżenie po 10–14 miesiącach. Makijaż permanentny z czasem zarasta naskórkiem i blednie, dlatego należy odświeżać kolor raz do roku. Oznacza to, że jeśli masz w bazie 40 klientek z ostatnich 12 miesięcy, masz potencjalnie 40 rezerwacji do zrealizowania w ciągu najbliższych kilku tygodni — i nikt Ci za nie nie płaci w sensie kosztu pozyskania. Szansa jest teraz, bo klientki, które obsłużyłaś 10–14 miesięcy temu, właśnie teraz powinny wracać na odświeżenie — i jeśli nie dostały od Ciebie żadnego sygnału, prawdopodobnie trafiły do konkurencji lub po prostu zapomniały. Jak wdrożyć w 7 dni: wypisz wszystkie klientki z ostatnich 14 miesięcy z datą zabiegu (wystarczy notatnik lub prosty Excel), podziel je na dwie grupy — te po 4–6 tygodniach bez korekty i te po 10–14 miesiącach bez odświeżenia. Napisz do każdej indywidualną wiadomość na WhatsApp lub Messengerze (nie zbiorową!) w stylu: "Hej [imię], minęło właśnie [X] miesięcy od Twojego zabiegu — czas na odświeżenie, żeby brwi wyglądały tak jak pierwszego dnia. Mam wolne terminy w [konkretne daty]. Rezerwujesz?" Nie pytaj "czy chcesz", tylko proponuj konkretny termin — klientki PMU reagują na gotowe opcje.</p>
+<p>Jak zmierzyć efekt po 30 dniach: liczba rezerwacji z tej grupy klientek. Cel minimalny: 5 rezerwacji odświeżeń w ciągu 30 dni = minimalnie 1 750 zł dodatkowego przychodu (przy cenie 350 zł za odświeżenie) bez ani grosza wydanego na reklamę.</p>
+<hr>
+<p><strong>Szansa 2: Wejście w trend nano brwi i brwi hybrydowych jako wyraźna specjalizacja komunikacyjna</strong></p>
+<p>Nano brwi — ulepszona wersja microbladingu z ultra cienkimi igłami — oraz brwi hybrydowe łączące microblading z cieniowaniem ombre to najgorętsze tematy wyszukiwane przez klientki w Polsce w 2026 roku. Problem polega na tym, że większość małych studiów PMU na swoich profilach pokazuje "efekty brwi" bez nazywania techniki. Twoja szansa to zostać w swojej okolicy jedynym studiem, które wyraźnie i explicite komunikuje "specjalizuję się w nano brwiach i brwiach hybrydowych" — bez względu na to, czy taką usługę już wykonujesz, czy właśnie ją dopracowujesz. Dlaczego właśnie teraz: wyszukiwania frazy "nano brwi" i "brwi hybrydowe" w Polsce rosną z miesiąca na miesiąc, a większość lokalnych konkurentów jeszcze nie pozycjonuje się pod te nazwy. Jak wdrożyć w 7 dni: zaktualizuj bio na Instagramie tak, żeby zawierało słowo "nano brwi" lub "brwi hybrydowe" + Twoja miejscowość (np. "Nano brwi i brwi hybrydowe — Kraków"), opublikuj 2–3 posty z wyraźnym oznaczeniem techniki w podpisie i dodaj hashtagi #nanobrwi #brwihybrydowe #pmu[miejscowość]. To kosztuje zero złotych, a zaczyna Cię indeksować pod nowe frazy.</p>
+<p>Jak zmierzyć efekt po 30 dniach: liczba zapytań zawierających słowa "nano brwi" lub "brwi hybrydowe" w wiadomościach prywatnych na Instagramie. Cel: minimum 3 nowe zapytania specyficznie o te techniki.</p>
+<hr>
+<p><strong>Szansa 3: Aktywacja grupy 35–55 przez Facebook i rekomendacje peer-to-peer</strong></p>
+<p>Kobiety w wieku 35–55 podejmują decyzję o PMU inaczej niż młodsze — szukają zaufania, dowodów i rekomendacji od kogoś podobnego do siebie. Dla klientek ważna jest gwarancja, że doświadczenie i bezpieczeństwo zabiegów są na najwyższym poziomie — a ta grupa wiekowa jest na to szczególnie wrażliwa. Ta grupa prawie nie przychodzi z Instagrama — ona jest na Facebooku, w lokalnych grupach "Polecam w [miasto]", "Uroda [miasto]", "Mamy z [dzielnica]". Szansa polega na tym, że te grupy są aktywne, zaufane i bezpłatne do wykorzystania. Jak wdrożyć w 7 dni: zidentyfikuj 3–5 lokalnych grup na Facebooku, do których należą kobiety 35–55 z Twojej okolicy. Poproś 2–3 swoje dotychczasowe klientki z tej grupy wiekowej, żeby wrzuciły w tych grupach post ze zdjęciem efektu i krótką rekomendacją Twojego studia — nie Ty sam/sama, bo to wygląda jak reklama, tylko one jako "zwykłe" użytkowniczki. Jeden taki post w aktywnej lokalnej grupie może dać Ci 5–10 zapytań w ciągu 48 godzin.</p>
+<p>Jak zmierzyć efekt po 30 dniach: liczba rezerwacji lub zapytań od kobiet w wieku 35–55 (pytaj nowe klientki "skąd o mnie wiedziałaś?"). Cel: 4 nowe klientki z tej grupy wiekowej w ciągu 30 dni = minimum 1 400–2 800 zł nowego przychodu.</p>
+<hr>
+<h2>PLAN NA 90 DNI — OD 10 000 ZŁ DO 28 000 ZŁ MIESIĘCZNIE</h2>
+<p><strong>Miesiąc 1 — Fundamenty</strong></p>
+<p><strong>Zadanie 1: Zbuduj bazę klientek w jednym miejscu</strong> Zbierz dane wszystkich klientek z ostatnich 2 lat do jednego pliku (imię, numer telefonu, data zabiegu, rodzaj zabiegu, cena). Możesz użyć darmowego Arkusza Google. Kategoryzuj: A — może wrócić na odświeżenie w ciągu 30 dni, B — w ciągu 3 miesięcy, C — nowa usługa cross-sell. Wskaźnik sukcesu: baza zawiera minimum 30 klientek z przypisanymi kategoriami.</p>
+<p><strong>Zadanie 2: Wyślij kampanię reaktywacyjną do kategorii A</strong> Skontaktuj się indywidualnie (WhatsApp lub Messenger) ze wszystkimi klientkami kategorii A. Treść wiadomości: konkretna propozycja terminu, nie pytanie "czy chcesz". Wskaźnik sukcesu: minimum 5 rezerwacji odświeżeń w ciągu 2 tygodni.</p>
+<p><strong>Zadanie 3: Zaktualizuj profil na Instagramie i Facebooku pod nowe trendy</strong> Zmień bio na Instagramie: dodaj specjalizację (nano brwi / brwi hybrydowe), miejscowość i link do rezerwacji lub bezpośredni numer. Uzupełnij profil na Facebooku — strona firmowa musi mieć aktualne zdjęcia, cennik (lub widełki), godziny pracy i przycisk "Zarezerwuj" lub "Wyślij wiadomość". Wskaźnik sukcesu: profil Instagram ma zaktualizowane bio z miejscowością i specjalizacją, strona Facebook ma minimum 5 aktualnych postów z efektami.</p>
+<p><strong>Zadanie 4: Wdróż harmonogram 3 postów tygodniowo na Instagramie</strong> Format: poniedziałek — zdjęcie przed/po z opisem techniki i krótką historią klientki (zanonimizowaną lub za zgodą), środa — post edukacyjny (np. "Jak dbać o brwi PMU przez pierwsze 7 dni"), piątek — post angażujący lub pytanie (np. "Którą technikę wybierasz: nano czy hybrydowe?"). Każdy post zawiera CTA: "Zapisy w bio" lub "Napisz do mnie". Wskaźnik sukcesu: 12 postów w ciągu miesiąca, minimum 15% wzrost liczby obserwujących.</p>
+<p><strong>Zadanie 5: Poproś 5 klientek o wystawienie opinii na Google Maps</strong> Profil Google Maps (Google Business Profile) to darmowe narzędzie, które sprawia, że Twoje studio pojawia się w wyszukiwarce Google, gdy ktoś szuka "PMU [Twoje miasto]". Jeśli go nie masz — załóż go w ciągu 48 godzin. Następnie wyślij link do oceny 5 najchętniejszym klientkom z prośbą: "Twoja opinia naprawdę mi pomaga — zajmie Ci dosłownie 2 minuty." Wskaźnik sukcesu: minimum 5 nowych opinii z oceną 5 gwiazdek na Google w ciągu pierwszego miesiąca.</p>
+<hr>
+<p><strong>Miesiąc 2 — Wzrost</strong></p>
+<p><strong>Zadanie 1: Uruchom pakiet "Polecam znajomej" — program rekomendacyjny</strong> Każda klientka po wizycie dostaje karteczkę (możesz wydrukować w domu na kartonie) z napisem: "Poleć mnie znajomej — Ty dostajesz 50 zł zniżki na następną wizytę, ona 50 zł na pierwszą." To nie kosztuje Cię nic z góry, a wypłacasz tylko wtedy, gdy przyjdzie nowa klientka. Wskaźnik sukcesu: minimum 3 nowe klientki z polecenia w miesiącu 2.</p>
+<p><strong>Zadanie 2: Uruchom pierwszą płatną reklamę na Facebooku/Instagramie — 200 zł</strong> Stwórz jedną reklamę: zdjęcie efektu przed/po, nagłówek "Nano brwi [Twoje miasto] — wolne terminy w [miesiąc]", przycisk "Wyślij wiadomość". Targetowanie: kobiety 25–50 lat, Twoje miasto + promień 15 km. Budżet 200 zł na 14 dni = 14,30 zł dziennie. Wskaźnik sukcesu: minimum 8 zapytań z reklamy w ciągu 14 dni.</p>
+<p><strong>Zadanie 3: Opublikuj 2 Reelsy na Instagramie pokazujące proces zabiegu</strong> Reelsy (krótkie filmy) mają organicznie dużo większy zasięg niż zwykłe posty w 2026 roku. Film nie musi być profesjonalny — wystarczy nagrać telefonem 30-sekundowy timelapse lub clip "przód/tył" z muzyką w tle. Ważne: dodaj napis na początku filmu, np. "Nano brwi — efekt po jednej wizycie." Wskaźnik sukcesu: minimum jeden Reel z zasięgiem powyżej 1 000 wyświetleń.</p>
+<p><strong>Zadanie 4: Wprowadź usługę "pakiet VIP" lub usługę uzupełniającą</strong> Jeśli Twoja główna usługa to brwi, wprowadź do menu kreską permanentną lub pigmentację ust i zaproponuj ją aktywnym klientkom w wiadomości: "Obserwuję, że po naszej wizycie przy brwiach, wiele klientek pyta mnie też o usta. Mam wolne terminy w [daty] — czy chciałabyś porozmawiać?" To cross-sell do ciepłej bazy. Wskaźnik sukcesu: minimum 3 rezerwacje nowej usługi od obecnych klientek.</p>
+<p><strong>Zadanie 5: Nawiąż współpracę barterową z jednym biznesem komplementarnym</strong> Fryzjer, salon paznokci, studio fitness lub gabinet kosmetyczny w Twojej okolicy ma tę samą klientkę co Ty. Zaproponuj wymianę: Ty dajesz ich klientkom voucher 100 zł na pierwszą wizytę, one dają Twoim klientkom voucher na ich usługę. Zero kosztów, wzajemna wymiana zasięgu. Wskaźnik sukcesu: minimum 1 aktywna umowa barterowa z jednym partnerem, minimum 2 nowe klientki z tego źródła.</p>
+<hr>
+<p><strong>Miesiąc 3 — Skalowanie</strong></p>
+<p><strong>Zadanie 1: Podnieś ceny o 10–20% dla nowych klientek</strong> Po 2 miesiącach systematycznej pracy: aktualny profil, opinie na Google, Reelsy z zasięgiem, program poleceń — masz uzasadnienie do podwyżki. Nowe ceny obowiązują wyłącznie dla nowych klientek, stałe klientki otrzymują je stopniowo. Komunikat: "Moje ceny od [data] będą wyższe — jeśli chcesz skorzystać ze starych cen, zarezerwuj termin do [data]". To jednocześnie generuje rezerwacje i legitymizuje wyższą cenę. Wskaźnik sukcesu: średni koszyk wzrośnie o minimum 15% względem miesiąca 1.</p>
+<p><strong>Zadanie 2: Stwórz stały content plan na kolejne 3 miesiące</strong> Na podstawie tego, co w miesiącu 1 i 2 generowało największe zasięgi i zapytania, zbuduj wzór: które posty konwertują (generują DM), które budują zaufanie, które angażują. Zaplanuj z góry tematy na 12 tygodni do przodu. Wskaźnik sukcesu: content plan istnieje w formie pisemnej, zaplanowany na minimum 60 dni do przodu.</p>
+<p><strong>Zadanie 3: Rozbuduj kampanię reklamową do 300 zł miesięcznie</strong> Skoro w miesiącu 2 reklama za 200 zł dała minimum 8 zapytań (koszt zapytania ok. 25 zł), w miesiącu 3 zwiększ budżet do 300 zł i testuj drugi wariant reklamy — inny obraz, ten sam tekst. Porównaj wyniki i zostaw lepszy. Wskaźnik sukcesu: koszt jednego zapytania nie wyższy niż 30 zł, minimum 10 zapytań w miesiącu.</p>
+<p><strong>Zadanie 4: Uruchom stronę internetową lub rozbuduj profil Google Business</strong> Strona internetowa nie musi być rozbudowana — wystarczy jedna strona z: zdjęciami efektów, cennikiem, opisem technik i formularzem kontaktowym lub linkiem do rezerwacji (Booksy, Calendly). Możesz to zrobić samodzielnie w Canva Websites lub Wix za ok. 0–100 zł miesięcznie. Kluczowe: zawrzyj na stronie nazwy technik (nano brwi, brwi hybrydowe, PMU) i nazwę swojego miasta — to pozwoli Ci pojawiać się w wynikach Google organicznie. Wskaźnik sukcesu: strona live, minimum 3 zapytania z Google w pierwszym miesiącu po uruchomieniu.</p>
+<p><strong>Zadanie 5: Wdróż system zbierania follow-up po każdej wizycie</strong> Po każdej wizycie wysyłaj wiadomość 7 dni później: "Jak wyglądają brwi po tygodniu? Chętnie zobaczę zdjęcie!" To po pierwsze buduje relację, po drugie dostarcza Ci materiał do Instagrama (za zgodą klientki), po trzecie — klientka czuje opiekę i wraca. Do wiadomości dołącz przypomnienie: "Twoja korekta powinna odbyć się za [X] tygodni — zarezerwuj już teraz, żeby nie stracić preferowanego terminu." Wskaźnik sukcesu: wskaźnik powrotów na korektę wzrasta do minimum 70% (z każdych 10 klientek minimum 7 wraca na korektę).</p>
+<hr>
+<h2>PRIORYTETY KANAŁÓW I KOMUNIKACJA Z KLIENTAMI</h2>
+<p>Przy budżecie 500 zł miesięcznie i Twoich dwóch grupach docelowych — rozkład priorytetów kanałów wygląda następująco:</p>
+<p><strong>Instagram — priorytet nr 1 dla grupy 18–35.</strong> To Twój główny kanał pozyskiwania nowych klientek z młodszej grupy i budowania autorytetu wizualnego. W branży PMU Instagram jest dosłownie portfolio na żywo. Nie możesz pozwolić sobie na nieregularność — algorytm karze przerwy w publikacji spadkiem zasięgów. Minimum 3 posty tygodniowo + minimum 2 Reelsy miesięcznie. Najlepsze godziny publikacji dla Twojej grupy docelowej: poniedziałek–piątek w godzinach 7:00–8:30 (poranny scrolling przed pracą) i 20:00–22:00 (wieczorny relaks). Sobota 10:00–12:00 działa szczególnie dobrze dla postów "przed/po" — klientki mają wtedy czas na przeglądanie i decydowanie.</p>
+<p><strong>Facebook — priorytet nr 1 dla grupy 35–55.</strong> Facebook jest niedoceniony przez młode studio PMU, bo właścicielki same są na Instagramie i myślą, że ich klientki też. Ale kobiety 35–55 — szczególnie te z mniejszych miast — podejmują decyzje zakupowe na Facebooku: przez lokalne grupy, przez stronę firmową, przez recenzje. Publikuj na Facebooku te same posty co na Instagramie (możesz to robić jednym kliknięciem przez Meta Business Suite), ale raz w tygodniu dodaj post skierowany bezpośrednio do tej grupy — np. "Dla tych, które od lat odkładają decyzję o PMU" lub "Mam wolne terminy w tym tygodniu — napisz, odpiszę w ciągu godziny."</p>
+<p><strong>Google Business Profile — priorytet nr 2, darmowy, ignorowany przez konkurencję.</strong> Większość lokalnych studiów PMU nie aktualizuje profilu Google lub w ogóle go nie ma. Tymczasem "PMU [miasto]" lub "makijaż permanentny [miasto]" to frazy, które wpisują kobiety gotowe kupić — nie przeglądające, tylko aktywnie szukające. Aktualizuj profil Google co najmniej raz w tygodniu — dodawaj zdjęcia efektów, odpowiadaj na każdą opinię.</p>
+<p><strong>Język komunikacji — dwie różne mowy dla dwóch grup:</strong></p>
+<p>Dla grupy 18–35: krótko, konkretnie, wizualnie. "Nano brwi. Jedno spotkanie. Efekt na rok." Bez elaboratów. Używaj języka ich problemów: "nie masz czasu na codzienne malowanie brwi?", "zmywa Ci się makijaż na siłowni?". Reelsy, stories z "za kulisami", Q&amp;A w stories.</p>
+<p>Dla grupy 35–55: buduj zaufanie przez szczegół i bezpieczeństwo. Opisuj technikę, mów o gojeniu, o bezpieczeństwie pigmentów, o tym ile trwa efekt. Nowe formuły pigmentów zgodne z regulacjami REACH zapewniają bezpieczeństwo, eliminując substancje toksyczne i metale ciężkie — to jest dokładnie taka informacja, która przekona 45-latkę niepewną decyzji. Odnoś się do ich obaw: "słyszałam, że boli" (odpowiedz: "stosujemy krem znieczulający"), "co jeśli mi się nie spodoba" (odpowiedz: "zawsze robimy rysunek wstępny przed pigmentacją, Ty akceptujesz kształt").</p>
+<p><strong>5 konkretnych przykładów treści:</strong></p>
+<ol>
+<li>Post Instagram (środa, edukacyjny): "5 rzeczy, których Ci nikt nie powie przed pierwszym PMU brwi. [punkt 1] Kolor po zabiegu będzie ciemniejszy przez 7–10 dni — to normalne. [punkt 2] Właściwa pielęgnacja w pierwszym tygodniu decyduje o 80% efektu końcowego. [punkt 3]... Zapis do bio."</li>
+</ol>
+<ol>
+<li>Post Facebook (skierowany do grupy 35–55): "Jeśli masz powyżej 35 lat i od dawna myślisz o PMU, ale coś Cię powstrzymuje — napisz do mnie. Chętnie odpiszę na każde pytanie. Bez presji, bez sprzedaży."</li>
+</ol>
+<ol>
+<li>Story Instagram (wtorek, angażujące): Ankieta: "Czego najbardziej się boisz przed pierwszym PMU? A) Bólu / B) Efektu który mi się nie spodoba / C) Ceny" — potem odpowiedź na każdą opcję w kolejnych stories.</li>
+</ol>
+<ol>
+<li>Wiadomość do klientki (reaktywacyjna): "Hej [imię]! Minął rok od Twoich brwi — czas na odświeżenie, żeby znów wyglądały jak pierwszego dnia. Mam wolne terminy 15 i 17 [miesiąc]. Który Ci pasuje?"</li>
+</ol>
+<ol>
+<li>Post Google / Facebook (z recenzją): Zrób screenshot opinii klientki (za zgodą) i wrzuć jako post z podpisem: "To znaczy więcej niż jakakolwiek reklama. Dziękuję [imię]." To buduje zaufanie i nagradza klientkę publicznie — która potem sama poleca dalej.</li>
+</ol>
+<hr>
+<h2>PODZIAŁ BUDŻETU DO 500 ZŁ MIESIĘCZNIE</h2>
+<p><strong>Reklama płatna Meta (Facebook + Instagram Ads) — 200 zł</strong> To absolutny priorytet. Jedna dobrze ustawiona reklama "przed/po" z targetowaniem lokalnym na kobiety 25–50 lat w promieniu 15 km od Twojego studia daje najtańszy koszt dotarcia do gotowych do zakupu klientek. Przy 200 zł i dobrym kreatie (które robisz samodzielnie w Canva) możesz uzyskać 8–12 zapytań miesięcznie, czyli koszt jednego zapytania ok. 17–25 zł. W miesiącu 1 testuj, w miesiącu 2 i 3 skaluj to, co działa.</p>
+<p><strong>Google Business Profile (zdjęcia, posty, promowanie opinii) — 0 zł (czas, nie pieniądze)</strong> Nic nie płacisz, ale to wymaga regularnego wkładu: jedno zdjęcie efektu tygodniowo + odpowiedź na każdą opinię w ciągu 24 godzin. Wartość tego kanału jest nieproporcjonalnie wysoka względem zera złotych wydanych.</p>
+<p><strong>Materiały do programu poleceń (druk karteczek/voucherów) — 30 zł</strong> Wydruk 100 małych karteczek wizytówkowych z informacją o programie poleceń. Możesz zrobić projekt w Canva (darmowe) i wydrukować w lokalnym Copy lub na Printful za ok. 25–35 zł.</p>
+<p><strong>Canva Pro (jeśli jeszcze nie masz) — 55 zł</strong> Canva Pro daje dostęp do profesjonalnych szablonów, usuwania tła ze zdjęć efektów i zaplanowania postów z wyprzedzeniem. Inwestycja, która oszczędza Ci 3–4 godziny miesięcznie i sprawia, że Twoje posty wyglądają profesjonalnie.</p>
+<p><strong>Rezerwa/elastyczny budżet (np. boost jednego świetnego Reelsa) — 215 zł</strong> Jeśli w danym miesiącu jeden Reel organicznie "chwyta" — ma 2 000+ wyświetleń — wydaj 100–150 zł na jego promowanie. To lepszy zwrot niż puszczanie "zimnej" reklamy. Pozostałe 65–115 zł trzymaj w rezerwie na nieprzewidywalne okazje (np. Dzień Kobiet w marcu, Black Friday w listopadzie — jeden post z ofertą limitowaną).</p>
+<p>Przy tym podziale budżetu Twój koszt pozyskania jednego nowego klienta wynosi szacunkowo <strong>42 zł</strong>.</p>
+<hr>
+<h2>3 RZECZY KTÓRE MOŻESZ ZROBIĆ JUTRO</h2>
+<p><strong>Działanie 1: Kampania reaktywacyjna do śpiących klientek</strong> Co zrobić: Wyślij dzisiaj wieczór spersonalizowane wiadomości do 10 klientek, które były u Ciebie 10–16 miesięcy temu i nie wróciły na odświeżenie. Jak krok po kroku:</p>
+<ol>
+<li>Otwórz swoje kontakty / notatki / historię rezerwacji i wypisz 10 klientek z datą ostatniej wizyty.</li>
+<li>Dla każdej napisz indywidualną wiadomość na WhatsApp lub Messengerze — zaczynaj od imienia, kończ propozycją konkretnego terminu (np. "czy pasuje Ci wtorek o 16:00 lub czwartek o 10:00?").</li>
+<li>Nie wysyłaj grupowej wiadomości — każda klientka musi poczuć, że napisałaś specjalnie do niej.</li>
+<li>Jeśli nie odpisze w ciągu 48 godzin, wyślij jedno przypomnienie: "Hej, widzę że moja wiadomość mogła się zgubić..."</li>
+</ol>
+<p>Efekt który zobaczysz w ciągu 7 dni: 3 nowe rezerwacje odświeżeń = minimum 1 050 zł dodatkowego przychodu.</p>
+<hr>
+<p><strong>Działanie 2: Aktualizacja bio na Instagramie i dodanie przycisku rezerwacji</strong> Co zrobić: Zmień opis profilu na Instagramie tak, żeby w ciągu 3 sekund było jasne: co robisz, gdzie i jak się umówić. Jak krok po kroku:</p>
+<ol>
+<li>Wejdź w edycję profilu na Instagramie i napisz nowe bio w formacie: "[technika specjalizacji, np. Nano brwi i brwi hybrydowe] | [miasto] | Zapisy: [link lub numer]."</li>
+<li>Dodaj link w bio — jeśli nie masz strony, wstaw bezpośredni link do Booksy, Calendly lub po prostu numer telefonu poprzedzony "wa.me/48..." (link otwierający WhatsApp).</li>
+<li>Sprawdź, czy Twoja strona na Facebooku ma aktywny przycisk "Zarezerwuj wizytę" lub "Wyślij wiadomość" — jeśli nie, dodaj go w ustawieniach strony.</li>
+<li>Opublikuj jeden post "przypomnijka": "Zaktualizowałam zapisy — teraz możesz zarezerwować bezpośrednio przez link w bio."</li>
+</ol>
+<p>Efekt który zobaczysz w ciągu 7 dni: 2 nowe zapytania przez link w bio, które wcześniej trafiały do konkurencji.</p>
+<hr>
+<p><strong>Działanie 3: Prośba o 3 opinie na Google Maps</strong> Co zrobić: Napisz dzisiaj do 3 najbardziej zadowolonych klientek z ostatnich 2 miesięcy i poproś je o wystawienie opinii na Google. Jak krok po kroku:</p>
+<ol>
+<li>Wejdź na swój profil Google Business (lub załóż go na business.google.com, jeśli jeszcze nie masz — to 10 minut).</li>
+<li>Skopiuj bezpośredni link do wystawiania opinii (w panelu Google Business jest przycisk "Uzyskaj więcej opinii").</li>
+<li>Napisz do 3 wybranych klientek: "Hej [imię], mam do Ciebie małą prośbę — Twoja opinia na Google bardzo mi pomoże dotrzeć do kolejnych klientek. Zajmie to 2 minuty. Oto link: [link]. Z góry dziękuję!"</li>
+<li>Wyślij każdej z nich indywidualnie — nie "kopiuj/wklej" bez zmiany imienia.</li>
+</ol>
+<p>Efekt który zobaczysz w ciągu 7 dni: 3 nowe opinie 5-gwiazdkowe na Google, które sprawiają, że zaczynasz pojawiać się wyżej w wynikach wyszukiwania "PMU [Twoje miasto]".</p>
+<hr>
+<h2>TWÓJ POTENCJAŁ — GDZIE MOŻESZ BYĆ ZA 6 MIESIĘCY</h2>
+<p>Dźwignia 1: Retencja klientek — wdrożenie systemu follow-up i odświeżeń = +3 500 zł/miesiąc (10 odświeżeń po 350 zł, których dziś nie realizujesz, bo nie ma systemu powrotów).</p>
+<p>Dźwignia 2: Wyższe ceny po zbudowaniu pozycjonowania jako specjalistka od nano brwi i brwi hybrydowych — wzrost średniego koszyka o 15–20% = +1 800 zł/miesiąc (przy 12 wizytach miesięcznie i wyższej cenie o 150 zł).</p>
+<p>Dźwignia 3: Nowe klientki z reklamy Meta + Google + program poleceń — realnie 6–8 nowych klientek miesięcznie ponad obecny poziom = +3 600 zł/miesiąc (przy średnim koszyku 500–600 zł).</p>
+<p>Łącznie: obecne 10 000 zł + 8 900 zł z trzech dźwigni = <strong>18 900 zł miesięcznie</strong> jako realistyczny cel na miesiąc 6, przy dalszym wzroście w kierunku 25 000+ zł w perspektywie roku.</p>
+<hr>
+<h2>TWÓJ ZWROT Z TEGO RAPORTU</h2>
+<p>Twój raport kosztował 149 zł. Jeśli wdrożysz choćby jedną z powyższych strategii, zwróci się w ciągu 7 dni — szacując konserwatywnie.</p>
+<hr>
+<p>Podziel się tym raportem ze znajomym który prowadzi firmę — może mu pomóc tak samo jak Tobie.</p>
+  </div>
+
+  <div class="print-wrap">
+    <button class="print-btn" onclick="window.print()">Pobierz jako PDF</button>
+    <div class="print-hint">Aby zapisać jako PDF: kliknij Drukuj → wybierz &bdquo;Zapisz jako PDF&rdquo; → kliknij Zapisz</div>
+  </div>
+</div>
+
+<!-- PRINT FOOTER -->
+<div id="pftr">
+  <span>raportai.com.pl</span>
+  <span>Raport Strategiczny 2026</span>
+</div>
+
+<footer>
+  <div class="footer-logo">Raport<span>AI</span></div>
+  <div class="footer-text">&copy; 2026 raportai.com.pl</div>
+</footer>
+
+<script>
+document.querySelector('.print-btn').addEventListener('click', function() { window.print(); });
+</script>
 </body>
 </html>
