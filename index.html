@@ -1,776 +1,1561 @@
 <!DOCTYPE html>
+
 <html lang="pl">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>RaportAI — Strategiczny raport marketingowy dla Twojego biznesu</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
 <style>
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+
+
 :root {
+
   --gold:       #B8935A;
+
   --gold-light: #D4AF7A;
+
   --gold-dark:  #8F6B3A;
+
   --cream:      #FAF8F4;
+
   --cream-dark: #F0EAE0;
+
   --black:      #1C1410;
+
   --text:       #3D3428;
+
   --muted:      #7A7060;
+
   --border:     #E5DDD3;
+
 }
+
+
 
 body {
+
   background: var(--cream);
+
   color: var(--text);
+
   font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+
   font-weight: 400;
+
   line-height: 1.6;
+
   -webkit-font-smoothing: antialiased;
+
 }
+
+
 
 /* ── TYPOGRAPHY ── */
+
 h1, h2, h3, h4 {
+
   font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-weight: 600;
+
   line-height: 1.15;
+
 }
+
+
 
 /* ── NAV ── */
+
 nav {
+
   position: sticky; top: 0; z-index: 100;
+
   background: rgba(250,248,244,0.88);
+
   backdrop-filter: blur(20px) saturate(1.8);
+
   -webkit-backdrop-filter: blur(20px) saturate(1.8);
+
   border-bottom: 1px solid var(--border);
+
   padding: 0 40px;
+
   height: 58px;
+
   display: flex; align-items: center; justify-content: space-between;
+
 }
+
 .nav-logo {
+
   font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: 22px; font-weight: 600;
+
   letter-spacing: 0.05em;
+
   color: var(--black);
+
   text-decoration: none;
+
 }
+
 .nav-logo span { color: var(--gold); }
+
 .nav-cta {
+
   padding: 9px 22px;
+
   background: var(--black); color: var(--cream);
+
   border: none; border-radius: 2px;
+
   font-family: 'Lato', sans-serif;
+
   font-size: 12px; font-weight: 700;
+
   letter-spacing: 0.1em; text-transform: uppercase;
+
   cursor: pointer; text-decoration: none;
+
   transition: background 0.2s, color 0.2s;
+
 }
+
 .nav-cta:hover { background: var(--gold); color: #fff; }
 
+
+
 /* ── HERO ── */
+
 .hero {
+
   min-height: 95vh;
+
   display: flex; flex-direction: column; align-items: center; justify-content: center;
+
   text-align: center;
+
   padding: 100px 24px 80px;
+
   position: relative;
+
   background-image: url('/hero-bg.jpg');
+
   background-size: cover;
+
   background-position: center top;
+
   background-color: #F0EAE0;
+
 }
+
 .hero-overlay {
+
   position: absolute;
+
   inset: 0;
+
   background: rgba(248,244,238,0.70);
+
   z-index: 0;
+
 }
+
 .hero > * { position: relative; z-index: 1; }
 
+
+
 .hero-tag {
+
   display: inline-block;
+
   padding: 5px 18px;
+
   border: 1px solid rgba(143,107,58,0.35);
+
   font-family: 'Lato', sans-serif;
+
   font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+
   color: var(--gold-dark);
+
   margin-bottom: 36px;
+
 }
+
 .hero h1 {
+
   font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: clamp(36px, 6vw, 72px);
+
   font-weight: 600;
+
   letter-spacing: -0.01em;
+
   line-height: 1.1;
+
   color: var(--black);
+
   max-width: 780px;
+
   margin-bottom: 28px;
+
 }
+
 .hero h1 em {
+
   font-style: italic;
+
   color: var(--gold);
+
 }
+
 .hero-sub {
+
   font-family: 'Lato', sans-serif;
+
   font-size: clamp(15px, 2vw, 17px);
+
   font-weight: 300;
+
   color: var(--text);
+
   max-width: 480px;
+
   line-height: 1.75;
+
   margin-bottom: 44px;
+
 }
+
 .hero-cta {
+
   display: inline-block;
+
   padding: 17px 42px;
+
   background: var(--black); color: var(--cream);
+
   border: none; border-radius: 2px;
+
   font-family: 'Lato', sans-serif;
+
   font-size: 13px; font-weight: 700;
+
   letter-spacing: 0.1em; text-transform: uppercase;
+
   cursor: pointer; text-decoration: none;
+
   transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+
   box-shadow: 0 4px 20px rgba(28,20,16,0.18);
+
 }
+
 .hero-cta:hover {
+
   background: var(--gold);
+
   color: #fff;
+
   transform: translateY(-2px);
+
   box-shadow: 0 8px 28px rgba(184,147,90,0.35);
+
 }
+
 .hero-cta:active { transform: translateY(0); }
+
 .hero-note {
+
   margin-top: 18px;
+
   font-family: 'Lato', sans-serif;
+
   font-size: 12px; font-weight: 300;
+
   color: var(--muted);
+
   letter-spacing: 0.04em;
+
 }
+
 .hero-preview-link {
+
   display: block;
+
   margin-top: 12px;
+
   font-family: 'Lato', sans-serif;
+
   font-size: 13px;
+
   color: var(--muted);
+
   text-decoration: none;
+
   letter-spacing: 0.03em;
+
   transition: color 0.2s;
+
 }
+
 .hero-preview-link:hover { color: var(--gold); }
 
+
+
 /* ── SECTION BASE ── */
+
 .section-eyebrow {
+
   text-align: center;
+
   font-family: 'Lato', sans-serif;
+
   font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+
   color: var(--gold);
+
   margin-bottom: 18px;
+
 }
+
 .section-heading {
+
   text-align: center;
+
   font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: clamp(30px, 4.5vw, 50px);
+
   font-weight: 600;
+
   color: var(--black);
+
   line-height: 1.15;
+
   margin-bottom: 16px;
+
 }
+
 .section-sub {
+
   text-align: center;
+
   font-family: 'Lato', sans-serif;
+
   font-size: 15px; font-weight: 300;
+
   color: var(--muted);
+
   max-width: 500px;
+
   margin: 0 auto;
+
   line-height: 1.75;
+
 }
+
+
 
 /* ── HOW IT WORKS ── */
+
 .how {
+
   padding: 110px 24px;
+
   max-width: 960px; margin: 0 auto;
-}
-.how-steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 48px;
-  margin-top: 72px;
-}
-.how-step { text-align: center; }
-.how-num {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 64px; font-weight: 600;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 20px;
-  opacity: 0.85;
-}
-.how-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 20px; font-weight: 600;
-  color: var(--black);
-  margin-bottom: 10px;
-}
-.how-desc {
-  font-family: 'Lato', sans-serif;
-  font-size: 14px; font-weight: 300;
-  color: var(--muted);
-  line-height: 1.7;
-}
-.how-note {
-  text-align: center;
-  max-width: 560px;
-  margin: 48px auto 0;
-  font-family: 'Lato', sans-serif;
-  font-size: 13px; font-weight: 300;
-  color: var(--muted);
-  line-height: 1.75;
-  border-top: 1px solid var(--border);
-  padding-top: 32px;
+
 }
 
+.how-steps {
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+  gap: 48px;
+
+  margin-top: 72px;
+
+}
+
+.how-step { text-align: center; }
+
+.how-num {
+
+  font-family: 'Cormorant Garamond', Georgia, serif;
+
+  font-size: 64px; font-weight: 600;
+
+  color: var(--gold);
+
+  line-height: 1;
+
+  margin-bottom: 20px;
+
+  opacity: 0.85;
+
+}
+
+.how-title {
+
+  font-family: 'Cormorant Garamond', Georgia, serif;
+
+  font-size: 20px; font-weight: 600;
+
+  color: var(--black);
+
+  margin-bottom: 10px;
+
+}
+
+.how-desc {
+
+  font-family: 'Lato', sans-serif;
+
+  font-size: 14px; font-weight: 300;
+
+  color: var(--muted);
+
+  line-height: 1.7;
+
+}
+
+.how-note {
+
+  text-align: center;
+
+  max-width: 560px;
+
+  margin: 48px auto 0;
+
+  font-family: 'Lato', sans-serif;
+
+  font-size: 13px; font-weight: 300;
+
+  color: var(--muted);
+
+  line-height: 1.75;
+
+  border-top: 1px solid var(--border);
+
+  padding-top: 32px;
+
+}
+
+
+
 /* ── DIVIDER ── */
+
 .divider {
+
   width: 60px; height: 1px;
+
   background: var(--gold);
+
   margin: 0 auto;
+
   opacity: 0.6;
+
+}
+
+
+
+/* ── MID CTA ── */
+.mid-cta {
+  text-align: center;
+  padding: 64px 24px;
+  background: var(--cream-dark);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 /* ── SOCIAL PROOF ── */
+
 .social {
+
   background: var(--black);
+
   padding: 100px 24px;
+
   text-align: center;
-}
-.social-label {
-  font-family: 'Lato', sans-serif;
-  font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 36px;
-}
-.social-number {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(80px, 14vw, 140px);
-  font-weight: 600;
-  color: var(--gold-light);
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-.social-unit {
-  font-family: 'Lato', sans-serif;
-  font-size: 15px; font-weight: 300;
-  color: rgba(250,248,244,0.55);
-  margin-top: 14px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.social-note {
-  font-family: 'Lato', sans-serif;
-  font-size: 12px; font-weight: 300;
-  color: rgba(250,248,244,0.35);
-  margin-top: 10px;
+
 }
 
+.social-label {
+
+  font-family: 'Lato', sans-serif;
+
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+
+  color: var(--gold);
+
+  margin-bottom: 36px;
+
+}
+
+.social-number {
+
+  font-family: 'Cormorant Garamond', Georgia, serif;
+
+  font-size: clamp(80px, 14vw, 140px);
+
+  font-weight: 600;
+
+  color: var(--gold-light);
+
+  line-height: 1;
+
+  letter-spacing: -0.02em;
+
+}
+
+.social-unit {
+
+  font-family: 'Lato', sans-serif;
+
+  font-size: 15px; font-weight: 300;
+
+  color: rgba(250,248,244,0.55);
+
+  margin-top: 14px;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+
+}
+
+.social-note {
+
+  font-family: 'Lato', sans-serif;
+
+  font-size: 12px; font-weight: 300;
+
+  color: rgba(250,248,244,0.35);
+
+  margin-top: 10px;
+
+}
+
+
+
 /* ── FEATURES ── */
+
 .features {
+
   padding: 110px 24px;
+
   max-width: 960px; margin: 0 auto;
+
 }
+
 .features-grid {
+
   display: grid;
+
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
   border: 1px solid var(--border);
+
   margin-top: 64px;
+
 }
+
 .feat {
+
   padding: 36px 32px;
+
   border-right: 1px solid var(--border);
+
   border-bottom: 1px solid var(--border);
+
   transition: background 0.2s;
+
 }
+
 .feat:hover { background: var(--cream-dark); }
-.feat-icon {
-  font-size: 20px;
+
+.feat-num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #B8935A;
+  line-height: 1;
   margin-bottom: 16px;
   display: block;
 }
+
 .feat-title {
+
   font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: 18px; font-weight: 600;
+
   color: var(--black);
+
   margin-bottom: 8px;
+
 }
+
 .feat-desc {
+
   font-family: 'Lato', sans-serif;
+
   font-size: 13px; font-weight: 300;
+
   color: var(--muted);
+
   line-height: 1.65;
+
 }
+
+
 
 /* ── DLA KOGO ── */
+
 .dla-kogo {
+
   background: var(--cream-dark);
+
   padding: 110px 24px;
+
 }
+
 .dla-kogo-inner {
+
   max-width: 720px; margin: 0 auto;
+
 }
+
 .dla-kogo-intro {
+
   text-align: center;
+
   font-family: 'Lato', sans-serif;
+
   font-size: 15px; font-weight: 300;
+
   color: var(--muted);
+
   max-width: 520px;
+
   margin: 0 auto 56px;
+
   line-height: 1.75;
+
 }
+
 .dla-kogo-list {
+
   display: grid;
+
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
   gap: 0;
+
   border: 1px solid var(--border);
+
 }
+
 .dla-kogo-item {
+
   display: flex; align-items: center; gap: 16px;
+
   padding: 22px 28px;
+
   border-right: 1px solid var(--border);
+
   border-bottom: 1px solid var(--border);
+
   background: var(--cream);
+
   transition: background 0.2s;
+
 }
+
 .dla-kogo-item:hover { background: #fff; }
+
 .dla-kogo-check {
+
   font-size: 14px;
+
   color: var(--gold);
+
   flex-shrink: 0;
+
   font-family: 'Cormorant Garamond', Georgia, serif;
+
 }
+
 .dla-kogo-label {
+
   font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: 17px; font-weight: 600;
+
   color: var(--black);
+
 }
+
+
 
 /* ── SAMPLE SECTION ── */
+
 .sample-section {
+
   padding: 100px 24px;
+
   text-align: center;
+
   border-top: 1px solid var(--border);
+
 }
+
 .sample-heading {
+
   font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: clamp(30px, 4.5vw, 50px);
+
   font-weight: 600;
+
   color: var(--black);
+
   margin-bottom: 16px;
+
 }
+
 .sample-sub {
+
   font-family: 'Lato', sans-serif;
+
   font-size: 16px; font-weight: 300;
+
   color: var(--muted);
+
   max-width: 440px;
+
   margin: 0 auto 44px;
+
   line-height: 1.7;
+
 }
+
+
 
 /* ── FAQ ── */
+
 .faq-section {
+
   background: var(--black);
+
   padding: 110px 24px;
+
 }
+
 .faq-inner {
+
   max-width: 680px; margin: 0 auto;
+
 }
+
 .faq-title {
+
   font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: clamp(30px, 4vw, 46px);
+
   font-weight: 600;
+
   color: var(--cream);
+
   text-align: center;
+
   margin-bottom: 64px;
+
 }
+
 .faq-item {
+
   border-top: 1px solid rgba(229,221,211,0.15);
+
   padding: 28px 0;
+
 }
+
 .faq-item:last-child { border-bottom: 1px solid rgba(229,221,211,0.15); }
+
 .faq-q {
+
   font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: 19px; font-weight: 600;
+
   color: var(--cream);
+
   margin-bottom: 10px;
+
   line-height: 1.3;
+
 }
+
 .faq-a {
+
   font-family: 'Lato', sans-serif;
+
   font-size: 14px; font-weight: 300;
+
   color: rgba(250,248,244,0.55);
+
   line-height: 1.75;
+
 }
+
+
 
 /* ── PRICING ── */
+
 .pricing-section {
+
   padding: 110px 24px;
+
   max-width: 560px; margin: 0 auto;
+
 }
+
 .pricing-box {
+
   background: #fff;
+
   border: 1px solid var(--border);
+
   border-top: 3px solid var(--gold);
+
   padding: 56px 48px;
+
   text-align: center;
+
 }
+
 .pricing-title {
+
   font-family: 'Lato', sans-serif;
+
   font-size: 11px; font-weight: 700;
+
   letter-spacing: 0.18em; text-transform: uppercase;
+
   color: var(--muted);
+
   margin-bottom: 32px;
+
 }
+
 .pricing-prices {
+
   display: flex; align-items: baseline; justify-content: center;
+
   gap: 20px; margin-bottom: 8px;
+
 }
+
 .pricing-old {
+
   font-family: 'Lato', sans-serif;
+
   font-size: 20px; font-weight: 300;
+
   color: var(--muted);
+
   text-decoration: line-through;
+
 }
+
 .pricing-main {
+
   font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: 72px; font-weight: 600;
+
   color: var(--gold);
+
   letter-spacing: -0.02em;
+
   line-height: 1;
+
 }
+
 .pricing-note {
+
   font-family: 'Lato', sans-serif;
+
   font-size: 12px; font-weight: 300;
+
   color: var(--muted);
+
   margin-bottom: 36px;
+
   letter-spacing: 0.02em;
+
 }
+
 .pricing-checks {
+
   list-style: none;
+
   text-align: left;
+
   margin: 0 0 32px;
+
   display: flex; flex-direction: column; gap: 12px;
+
 }
+
 .pricing-checks li {
+
   font-family: 'Lato', sans-serif;
+
   font-size: 14px; font-weight: 300;
+
   color: var(--text);
+
   line-height: 1.55;
+
   display: flex; align-items: flex-start; gap: 10px;
+
 }
+
 .pricing-checks li::before {
+
   content: '✦';
+
   color: var(--gold);
+
   flex-shrink: 0;
+
   margin-top: 1px;
+
   font-size: 10px;
+
 }
+
 .pricing-social {
+
   font-family: 'Lato', sans-serif;
+
   font-size: 12px; font-weight: 700;
+
   color: var(--gold);
+
   letter-spacing: 0.04em;
+
   margin-bottom: 28px;
+
 }
+
 .pricing-cta {
+
   display: block; width: 100%;
+
   padding: 17px;
+
   background: var(--black); color: var(--cream);
+
   border: none;
+
   font-family: 'Lato', sans-serif;
+
   font-size: 12px; font-weight: 700;
+
   letter-spacing: 0.12em; text-transform: uppercase;
+
   cursor: pointer; text-decoration: none;
+
   transition: background 0.2s, color 0.2s;
+
   text-align: center;
+
 }
+
 .pricing-cta:hover { background: var(--gold); color: #fff; }
 
+
+
 /* ── FOOTER ── */
+
 footer {
+
   background: var(--black);
+
   border-top: 1px solid rgba(229,221,211,0.1);
+
   padding: 48px 24px;
+
   text-align: center;
+
 }
+
 .footer-logo {
+
   font-family: 'Cormorant Garamond', Georgia, serif;
+
   font-size: 22px; font-weight: 600;
+
   letter-spacing: 0.05em;
+
   color: var(--cream);
+
   margin-bottom: 14px;
+
 }
+
 .footer-logo span { color: var(--gold); }
+
 .footer-text {
+
   font-family: 'Lato', sans-serif;
+
   font-size: 12px; font-weight: 300;
+
   color: rgba(250,248,244,0.35);
+
   line-height: 1.75;
+
   letter-spacing: 0.02em;
+
 }
+
 .footer-text a { color: rgba(250,248,244,0.35); text-decoration: none; }
+
 .footer-text a:hover { color: var(--gold-light); }
 
+
+
 /* ── MOBILE ── */
+
 @media (max-width: 700px) {
+
   nav { padding: 0 20px; }
+
   .how { padding: 80px 20px; }
+
   .how-steps { gap: 40px; }
+
   .features { padding: 80px 20px; }
+
   .features-grid { grid-template-columns: 1fr; }
+
   .feat { border-right: none; }
+
   .dla-kogo { padding: 80px 20px; }
+
   .dla-kogo-list { grid-template-columns: 1fr; }
+
   .dla-kogo-item { border-right: none; }
+
   .sample-section { padding: 80px 20px; }
+
   .faq-section { padding: 80px 20px; }
+
   .pricing-section { padding: 80px 20px; }
+
   .pricing-box { padding: 40px 28px; }
+
   .social { padding: 80px 20px; }
+
 }
+
 @media (max-width: 480px) {
+
   .nav-logo { font-size: 18px; }
+
   .nav-cta { font-size: 11px; padding: 8px 16px; }
+
   .hero { padding: 80px 20px 60px; }
+
 }
+
 </style>
+
 </head>
+
 <body>
 
+
+
 <!-- NAV -->
+
 <nav>
+
   <div class="nav-logo">Raport<span>AI</span></div>
+
   <a href="https://bit.ly/raportai-pl" class="nav-cta">Zamów raport — 149 zł</a>
+
 </nav>
 
+
+
 <!-- HERO -->
+
 <section class="hero">
+
   <div class="hero-overlay"></div>
+
   <div class="hero-tag">⚡ Gotowy w ok. 2 minuty</div>
+
   <h1>Za mało klientek? Czy grafik pełny, a zyski małe?<br><em>RaportAI znajdzie gdzie tracisz pieniądze.</em></h1>
+
   <p class="hero-sub">Spersonalizowany raport marketingowy i biznesowy dla Twojego salonu — konkretny plan jak zdobyć więcej klientek i zwiększyć marżę. Przygotowany przez AI w ok. 2 minuty.</p>
+
   <a href="https://bit.ly/raportai-pl" class="hero-cta">Zamów raport za 149 zł →</a>
+
   <p class="hero-note">Bez subskrypcji · Jednorazowa płatność · Gotowy w ok. 2 minuty</p>
+
   <a href="/przykladowy-raport.html" target="_blank" class="hero-preview-link">Zobacz przykładowy raport →</a>
+
 </section>
 
+
+
 <!-- JAK TO DZIAŁA -->
+
 <section class="how">
+
   <div class="section-eyebrow">Jak to działa</div>
+
   <div class="section-heading">Jak to działa?</div>
+
   <div class="divider"></div>
+
   <div class="how-steps">
+
     <div class="how-step">
+
       <div class="how-num">01</div>
+
       <div class="how-title">Wypełnij formularz (5 minut)</div>
+
       <div class="how-desc">Opisz swoją branżę, przychód, problemy i cele — im więcej szczegółów, tym lepszy raport.</div>
+
     </div>
+
     <div class="how-step">
+
       <div class="how-num">02</div>
+
       <div class="how-title">AI analizuje Twój salon (2 minuty)</div>
+
       <div class="how-desc">Sprawdza dane branżowe i tworzy spersonalizowany plan dopasowany do Twojej sytuacji.</div>
+
     </div>
+
     <div class="how-step">
+
       <div class="how-num">03</div>
+
       <div class="how-title">Dostajesz gotowy raport</div>
+
       <div class="how-desc">Konkretne działania na 90 dni z podziałem budżetu — gotowe do wdrożenia od zaraz.</div>
+
     </div>
+
   </div>
+
   <p class="how-note">Po kliknięciu „Zamów raport" przejdziesz do płatności. Po opłaceniu otrzymasz email z linkiem do formularza, gdzie wpiszesz dane swojego salonu i wygenerujesz raport.</p>
+
+</section>
+
+
+
+
+<!-- MID CTA -->
+<section class="mid-cta">
+  <a href="https://bit.ly/raportai-pl" class="hero-cta">Zamów raport za 149 zł →</a>
 </section>
 
 <!-- SOCIAL PROOF -->
+
 <section class="social">
-  <div class="social-label">Dołącz do właścicielek salonów, które już działają</div>
   <div id="report-counter" class="social-number">47</div>
+
   <div class="social-unit">raportów wygenerowanych</div>
-  <div class="social-note">Opinie pojawiają się tutaj na bieżąco — jesteśmy świeżo po starcie.</div>
 </section>
+
+
 
 <!-- CO ZAWIERA RAPORT -->
+
 <section class="features">
+
   <div class="section-eyebrow">Co zawiera raport</div>
+
   <div class="section-heading">Wszystko, czego potrzebujesz,<br>żeby zacząć działać</div>
+
   <div class="divider"></div>
+
   <div class="features-grid">
+
     <div class="feat">
-      <span class="feat-icon">🔍</span>
+
+      <span class="feat-num">01</span>
+
       <div class="feat-title">Diagnoza sytuacji</div>
+
       <div class="feat-desc">Co blokuje wzrost Twojego salonu i dlaczego klientki nie wracają.</div>
+
     </div>
+
     <div class="feat">
-      <span class="feat-icon">💡</span>
+
+      <span class="feat-num">02</span>
+
       <div class="feat-title">3 największe szanse</div>
+
       <div class="feat-desc">Konkretne okazje dla branży beauty — dopasowane do Twojego salonu.</div>
+
     </div>
+
     <div class="feat">
-      <span class="feat-icon">📅</span>
+
+      <span class="feat-num">03</span>
+
       <div class="feat-title">Plan miesiąc po miesiącu</div>
+
       <div class="feat-desc">Dokładne zadania na 3 miesiące — co robić w miesiącu 1, 2 i 3.</div>
+
     </div>
+
     <div class="feat">
-      <span class="feat-icon">📊</span>
+
+      <span class="feat-num">04</span>
+
       <div class="feat-title">Podział budżetu</div>
+
       <div class="feat-desc">Na co wydawać budżet marketingowy salonu — co do złotówki.</div>
+
     </div>
+
     <div class="feat">
-      <span class="feat-icon">📢</span>
+
+      <span class="feat-num">05</span>
+
       <div class="feat-title">Komunikacja z klientką</div>
+
       <div class="feat-desc">Co publikować na Instagramie, jakim językiem i jak często.</div>
+
     </div>
+
     <div class="feat">
-      <span class="feat-icon">⚡</span>
+
+      <span class="feat-num">06</span>
+
       <div class="feat-title">3 quick wins</div>
+
       <div class="feat-desc">Trzy rzeczy do zrobienia w ciągu 7 dni, żeby wypełnić grafik.</div>
+
     </div>
+
   </div>
+
 </section>
+
+
 
 <!-- DLA KOGO -->
+
 <section class="dla-kogo">
+
   <div class="dla-kogo-inner">
+
     <div class="section-eyebrow">Dla kogo jest raport</div>
+
     <div class="section-heading">Raport dla właścicielek<br>biznesów beauty</div>
+
     <div class="divider" style="margin-bottom:32px;"></div>
+
     <p class="dla-kogo-intro">Stworzyliśmy RaportAI z myślą o właścicielkach salonów kosmetycznych, studiów paznokci, gabinetów fryzjerskich i studiów urody — które chcą więcej klientek bez przepłacania za agencje marketingowe.</p>
+
     <div class="dla-kogo-list">
+
       <div class="dla-kogo-item">
+
         <span class="dla-kogo-check">✦</span>
+
         <span class="dla-kogo-label">Salon kosmetyczny</span>
+
       </div>
+
       <div class="dla-kogo-item">
+
         <span class="dla-kogo-check">✦</span>
+
         <span class="dla-kogo-label">Studio paznokci / brwi / rzęs</span>
+
       </div>
+
       <div class="dla-kogo-item">
+
         <span class="dla-kogo-check">✦</span>
+
         <span class="dla-kogo-label">Gabinet fryzjerski</span>
+
       </div>
+
       <div class="dla-kogo-item">
+
         <span class="dla-kogo-check">✦</span>
+
         <span class="dla-kogo-label">Studio tatuażu i PMU</span>
+
       </div>
+
       <div class="dla-kogo-item">
+
         <span class="dla-kogo-check">✦</span>
+
         <span class="dla-kogo-label">Studio fitness i pilates</span>
+
       </div>
+
       <div class="dla-kogo-item">
+
         <span class="dla-kogo-check">✦</span>
+
         <span class="dla-kogo-label">Gabinet masażu i SPA</span>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
+
+
 
 <!-- SAMPLE REPORT -->
+
 <section class="sample-section">
+
   <div class="section-eyebrow">Przykładowy raport</div>
+
   <div class="sample-heading">Sprawdź przykładowy raport</div>
+
   <p class="sample-sub">Zobacz dokładnie, co dostaniesz za 149 zł — przed zakupem</p>
+
   <a href="/przykladowy-raport.html" target="_blank" class="hero-cta">Zobacz przykładowy raport dla salonu kosmetycznego →</a>
+
 </section>
+
+
 
 <!-- FAQ -->
+
 <section class="faq-section">
+
   <div class="faq-inner">
+
     <div class="faq-title">Często zadawane pytania</div>
+
     <div class="faq-item">
+
       <div class="faq-q">Czy raport jest naprawdę spersonalizowany?</div>
+
       <div class="faq-a">Tak — AI analizuje dokładnie Twoje dane: branżę, staż, przychód, budżet i problemy. Każdy raport jest inny.</div>
+
     </div>
+
     <div class="faq-item">
+
       <div class="faq-q">Co jeśli prowadzę inny biznes beauty niż salon kosmetyczny?</div>
+
       <div class="faq-a">Raport działa dla każdego biznesu beauty — fryzjer, PMU, studio paznokci, masaż, SPA. Wpisz swoją branżę w formularzu.</div>
+
     </div>
+
     <div class="faq-item">
+
       <div class="faq-q">Ile czasu zajmuje wygenerowanie raportu?</div>
+
       <div class="faq-a">Ok. 2 minuty od wypełnienia formularza.</div>
+
     </div>
+
     <div class="faq-item">
+
       <div class="faq-q">Czy mogę pokazać raport komuś innemu?</div>
+
       <div class="faq-a">Tak — raport jest Twój. Możesz go wydrukować, zapisać jako PDF i pokazać wspólnikowi lub księgowej.</div>
+
     </div>
+
     <div class="faq-item">
+
       <div class="faq-q">Czy to jednorazowa płatność?</div>
+
       <div class="faq-a">Tak — płacisz raz 149 zł, bez subskrypcji i ukrytych opłat.</div>
+
     </div>
+
   </div>
+
 </section>
+
+
 
 <!-- PRICING -->
+
 <section class="pricing-section">
+
   <div class="pricing-box">
+
     <div class="pricing-title">Spersonalizowany raport dla Twojego salonu beauty</div>
+
     <div class="pricing-prices">
+
       <span class="pricing-old">249 zł</span>
+
       <span class="pricing-main">149 zł</span>
+
     </div>
+
     <div class="pricing-note">Cena promocyjna — normalna cena 249 zł</div>
+
     <ul class="pricing-checks">
+
       <li>Spersonalizowany raport dla Twojego salonu beauty</li>
+
       <li>Gotowy w ok. 2 minuty po wypełnieniu formularza</li>
+
       <li>Jeśli czegoś brakuje w raporcie — napisz do nas: kontakt.raportai@gmail.com</li>
+
     </ul>
+
     <div class="pricing-social">⚡ Ponad <span id="report-counter-inline">47</span> salonów już skorzystało z RaportAI</div>
+
     <a href="https://bit.ly/raportai-pl" class="pricing-cta">Zamów raport za 149 zł →</a>
+
   </div>
+
 </section>
 
+
+
 <!-- FOOTER -->
+
 <footer>
+
   <div class="footer-logo">Raport<span>AI</span></div>
+
   <div class="footer-text">
+
     &copy; 2026 RaportAI — Spersonalizowane raporty marketingowe dla polskich firm
+
   </div>
+
 </footer>
 
+
+
 <script>
+
 (function() {
+
   const COUNTER_URL = 'https://raportai-proxy.kontakt-raportai.workers.dev/counter';
+
   const FALLBACK = 47;
 
+
+
   function animateCount(el, from, to, duration) {
+
     if (from === to) { el.textContent = to; return; }
+
     const start = performance.now();
+
     function step(now) {
+
       const p = Math.min((now - start) / duration, 1);
+
       // ease-out cubic
+
       const ease = 1 - Math.pow(1 - p, 3);
+
       el.textContent = Math.round(from + (to - from) * ease);
+
       if (p < 1) requestAnimationFrame(step);
+
     }
+
     requestAnimationFrame(step);
+
   }
+
+
 
   async function loadCounter() {
+
     try {
+
       const res = await fetch(COUNTER_URL, { cache: 'no-store' });
+
       if (!res.ok) throw new Error('bad response');
+
       const data = await res.json();
+
       const count = parseInt(data.count) || FALLBACK;
+
       const el1 = document.getElementById('report-counter');
+
       const el2 = document.getElementById('report-counter-inline');
+
       if (el1) animateCount(el1, FALLBACK, count, 1000);
+
       if (el2) animateCount(el2, FALLBACK, count, 1000);
+
     } catch (e) {
+
       // fallback already shown
+
     }
+
   }
 
+
+
   if (document.readyState === 'loading') {
+
     document.addEventListener('DOMContentLoaded', loadCounter);
+
   } else {
+
     loadCounter();
+
   }
+
 })();
+
 </script>
+
 </body>
+
 </html>
+
